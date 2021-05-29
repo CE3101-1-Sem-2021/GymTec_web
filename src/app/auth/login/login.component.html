@@ -1,1 +1,19 @@
-<p>login works!</p>
+<div class="mainContainer">
+    <mat-card class="card">
+        <img class="logo" src="../../../../assets/images/logo.svg">
+        <div class="bottomContainer">
+            <div *ngIf="view ==='Client'" class="titleBox boxClient">
+                <h1 class="title">{{ view }}</h1>
+            </div>
+            <div *ngIf="view ==='Admin'" class="titleBox boxAdmin">
+                <h1 class="title">{{ view }}</h1>
+            </div>
+            <input type="email" id="email" name="email" placeholder="Correo" [(ngModel)]="email">
+            <input type="password" id="password" name="password" placeholder="Contraseña" [(ngModel)]="password">
+            <button *ngIf="view ==='Client'" class="logInButton boxClient" (click)="login()">Iniciar sesión</button>
+            <button *ngIf="view ==='Admin'" class="logInButton boxAdmin" (click)="login()">Iniciar sesión</button>
+            <button *ngIf="view ==='Client'" class="link title" [routerLink]="['../register']">o regístrese aquí</button>
+            <button *ngIf="view ==='Client'" class="forgotPassword" [routerLink]="['../forgot-password']">¿Olvidaste tu contraseña?</button>
+        </div>
+    </mat-card>
+</div>

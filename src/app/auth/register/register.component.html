@@ -1,1 +1,43 @@
-<p>register works!</p>
+<div class="mainContainer">
+    <mat-card class="card">
+        <input id="inputFile" type="file" accept="image/*" name="image" style="display: none;" #inputFile>
+        <button class="addPicture">
+            <!--<img class="clickableIcon" src="{{ iconSource }}">-->
+        </button>
+        <div class="bottomContainer">
+            <form>
+                <mat-form-field class="inputLong">
+                    <input matInput #message name="name" placeholder="Nombre" [(ngModel)]="name">
+                </mat-form-field>
+                <mat-form-field class="inputLong">
+                    <input matInput #message name="lastName" placeholder="Apellidos" [(ngModel)]="lastNames">
+                </mat-form-field>
+                <mat-form-field class="inputLong">
+                    <input matInput #message name="email" placeholder="Correo" [(ngModel)]="email">
+                </mat-form-field>
+                <mat-form-field class="inputLong">
+                    <input matInput type="password" name="password" placeholder="Contraseña" [(ngModel)]="password">
+                </mat-form-field>
+                <div class="verticalContainer">
+                    <gt-drop-down
+                        [title]="'Provincia'"
+                        [elemList]="this.provinces"
+                        (raiseEvent)="selectedProvince($event)"
+                    ></gt-drop-down>
+                    <gt-drop-down 
+                        [title]="'Cantón'"
+                        [elemList]="this.cantons"
+                        (raiseEvent)="selectedCanton($event)">
+                    </gt-drop-down>
+                    <gt-drop-down
+                        [title]="'Distrito'"
+                        [elemList]="this.districts"
+                        (raiseEvent)="selectedDistrict($event)">
+                    </gt-drop-down>
+                </div>
+            </form>
+
+            <button class="signUpButton" (click)="register()">Registrar</button>
+        </div>
+    </mat-card>
+</div>
