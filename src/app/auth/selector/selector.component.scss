@@ -1,0 +1,75 @@
+$watermelon: #FF3B3F;
+$watermelonHover: rgba($watermelon, 0.8);
+$sky: #CAEBF2;
+$skyHover: rgba($sky, 0.7);
+$carbon: #A9A9A9;
+
+.mainContainer {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.card {
+    height: 50%;
+    width: 30%;
+    min-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.logo {
+    margin-top: 50px !important;
+    max-width: 60%;
+    max-height: 60%;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+
+.button {
+    color: $carbon;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 44px;
+    letter-spacing: 0em;
+    text-align: center;
+    height: 84px;
+    width: 240px;
+    margin-top: 30px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.clientButton {
+    background-color: $watermelon;
+    border: $watermelon;
+}
+
+.clientButton:hover {
+    background-color: $watermelonHover;
+    border: $watermelonHover;
+}
+
+.adminButton {
+    background-color: $sky;
+    border: $sky;
+}
+
+.adminButton:hover {
+    background-color: $skyHover;
+    border: $skyHover;
+}

@@ -1,5 +1,14 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 import { SharedComponent } from './shared.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { DropDownComponent } from './drop-down/drop-down.component';
@@ -19,7 +28,34 @@ import { EditCardComponent } from './edit-card/edit-card.component';
     EditCardComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatDividerModule,
+    MatMenuModule,
+    MatInputModule,
+    MatSelectModule,
+    MatToolbarModule,
+    MatSelectModule
+  ],
+  exports: [
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatDividerModule,
+    MatMenuModule,
+    MatInputModule,
+    MatSelectModule,
+    MatToolbarModule,
+    MatSelectModule,
+    SideMenuComponent,
+    HeaderComponent,
+    DropDownComponent
   ]
 })
 export class SharedModule { }

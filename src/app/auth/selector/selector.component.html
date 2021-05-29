@@ -1,1 +1,9 @@
-<p>selector works!</p>
+<div class="mainContainer">
+    <mat-card class="card">
+        <img class="logo" src="../../../../assets/images/logo.svg">
+        <div class="buttonContainer">
+            <button class="button clientButton" [routerLink]="['./login-client']">Client</button>
+            <button class="button adminButton" [routerLink]="['./login-admin']">Admin</button>
+        </div>
+    </mat-card>
+</div>
