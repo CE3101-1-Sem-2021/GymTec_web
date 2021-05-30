@@ -16,7 +16,7 @@ export class AdminComponent implements OnInit {
       icon: '../../../assets/icons/dashboard.svg'
     },
     {
-      text: 'Mangement',
+      text: 'Management',
       icon: '../../../assets/icons/management.svg'
     }];
     urlButtons = ['/pages/admin/home', '/pages/admin/management'];
