@@ -1,1 +1,16 @@
-<p>header works!</p>
+<mat-toolbar class="mainContainer">
+    <button class="menuButton" (click)="showProfile()">
+        <img class="menuImg" src="../../../../assets/icons/menu.svg">
+    </button>
+    <img class="logo" src="../../../../assets/images/logo.svg">
+    <div class="buttonContainer">
+        <button class="button" (click)="buttonClick('First')">
+            <img class="icon" src="{{ headerButtons[0].icon }}">
+            {{ headerButtons[0].text }}
+        </button>
+        <button class="button" (click)="buttonClick('Second')">
+            <img class="icon" src="{{ headerButtons[1].icon }}">
+            {{ headerButtons[1].text }}
+        </button>
+    </div>
+</mat-toolbar>

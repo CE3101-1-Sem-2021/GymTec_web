@@ -24,10 +24,15 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    if(this.email != '' && this.password != '') {
-      //this.authService.login(this.email, this.password, this.view);
+    if(this.view == 'Admin') {
+      this.router.navigateByUrl('/pages/admin/home');
+    }
+    else if (this.view == 'Client') {
       this.router.navigateByUrl('/pages/client/home');
     }
+    //if(this.email != '' && this.password != '') {
+      //this.authService.login(this.email, this.password, this.view);
+    //}
     else {
       this.alertService.alertError('Debe ingresar un correo y contraseña.');
     }
