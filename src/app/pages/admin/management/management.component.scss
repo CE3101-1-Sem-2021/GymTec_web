@@ -1,0 +1,19 @@
+.horizontalContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+
+.verticalContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-height: 700px;
+  overflow-y: auto;
+  width: 100vw;
+  margin: 0px;
+  padding: 0px;
+}
