@@ -1,1 +1,7 @@
-<p>management works!</p>
+<div>
+  <app-menu-option
+    *ngFor="let option of this.menuOptions"
+    [menuOptionData]="option"
+  >
+  </app-menu-option>
+</div>

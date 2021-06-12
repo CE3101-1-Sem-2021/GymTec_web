@@ -1,0 +1,18 @@
+<!--
+    Component to display a menuOption
+    Inputs: menuOption from models
+-->
+
+<mat-card class="card">
+  <img
+    mat-card-image
+    class="image"
+    src="{{ menuOptionData.image }}"
+    (click)="routeToView()"
+  />
+  <mat-card-content class="bottomContainer">
+    <div>
+      <h1 class="title" (click)="routeToView()">{{ menuOptionData.title }}</h1>
+    </div>
+  </mat-card-content>
+</mat-card>
