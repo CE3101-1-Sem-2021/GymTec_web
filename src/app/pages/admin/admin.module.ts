@@ -17,6 +17,7 @@ import { InventoryComponent } from "./inventory/inventory.component";
 import { ProductsComponent } from "./products/products.component";
 import { PayrollTypesComponent } from "./payroll-types/payroll-types.component";
 import { MenuOptionComponent } from "./menu-option/menu-option.component";
+import { TreatmentComponent } from "./treatments/treatment/treatment.component";
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { MenuOptionComponent } from "./menu-option/menu-option.component";
     ProductsComponent,
     PayrollTypesComponent,
     MenuOptionComponent,
+    TreatmentComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
 })

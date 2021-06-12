@@ -1,1 +1,7 @@
-<p>treatments works!</p>
+<div class="horizontalContainer">
+  <app-treatment
+    *ngFor="let option of this.treatmentOptions"
+    [treatmentData]="option"
+  >
+  </app-treatment>
+</div>
