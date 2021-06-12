@@ -1,19 +1,62 @@
 <div class="mainContainer">
-    <mat-card class="card">
-        <img class="logo" src="../../../../assets/images/logo.svg">
-        <div class="bottomContainer">
-            <div *ngIf="view ==='Client'" class="titleBox boxClient">
-                <h1 class="title">{{ view }}</h1>
-            </div>
-            <div *ngIf="view ==='Admin'" class="titleBox boxAdmin">
-                <h1 class="title">{{ view }}</h1>
-            </div>
-            <input type="email" id="email" name="email" placeholder="Correo" [(ngModel)]="email">
-            <input type="password" id="password" name="password" placeholder="Contraseña" [(ngModel)]="password">
-            <button *ngIf="view ==='Client'" class="logInButton boxClient" (click)="login()">Iniciar sesión</button>
-            <button *ngIf="view ==='Admin'" class="logInButton boxAdmin" (click)="login()">Iniciar sesión</button>
-            <button *ngIf="view ==='Client'" class="link title" [routerLink]="['../register']">o regístrese aquí</button>
-            <button *ngIf="view ==='Client'" class="forgotPassword" [routerLink]="['../forgot-password']">¿Olvidaste tu contraseña?</button>
-        </div>
-    </mat-card>
+  <mat-card class="card">
+    <img class="logo" src="../../../../assets/images/logo.svg" />
+    <div class="bottomContainer">
+      <div *ngIf="view === 'Client'" class="titleBox boxClient">
+        <h1 class="title">{{ view }}</h1>
+      </div>
+      <div *ngIf="view === 'Admin'" class="titleBox boxAdmin">
+        <h1 class="title">{{ view }}</h1>
+      </div>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Correo"
+        [(ngModel)]="email"
+      />
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Contraseña"
+        [(ngModel)]="password"
+      />
+
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1"> Instructor </mat-radio-button>
+        <mat-radio-button value="2">Dependiente de Tienda </mat-radio-button>
+        <mat-radio-button value="3">Dependiente de Spa</mat-radio-button>
+      </mat-radio-group>
+
+      <button
+        *ngIf="view === 'Client'"
+        class="logInButton boxClient"
+        (click)="login()"
+      >
+        Iniciar sesión
+      </button>
+      <button
+        *ngIf="view === 'Admin'"
+        class="logInButton boxAdmin"
+        (click)="login()"
+      >
+        Iniciar sesión
+      </button>
+      <button
+        *ngIf="view === 'Client'"
+        class="link title"
+        [routerLink]="['../register']"
+      >
+        o regístrese aquí
+      </button>
+      <button
+        *ngIf="view === 'Client'"
+        class="forgotPassword"
+        [routerLink]="['../forgot-password']"
+      >
+        ¿Olvidaste tu contraseña?
+      </button>
+    </div>
+  </mat-card>
 </div>
