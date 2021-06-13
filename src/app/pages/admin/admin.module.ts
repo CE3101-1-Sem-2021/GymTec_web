@@ -18,6 +18,8 @@ import { ProductsComponent } from "./products/products.component";
 import { PayrollTypesComponent } from "./payroll-types/payroll-types.component";
 import { MenuOptionComponent } from "./menu-option/menu-option.component";
 import { TreatmentComponent } from "./treatments/treatment/treatment.component";
+import { NewTreatmentComponent } from "./treatments/new-treatment/new-treatment.component";
+import { TreatmentDetailsComponent } from './treatments/treatment-details/treatment-details.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { TreatmentComponent } from "./treatments/treatment/treatment.component";
     PayrollTypesComponent,
     MenuOptionComponent,
     TreatmentComponent,
+    NewTreatmentComponent,
+    TreatmentDetailsComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
 })

@@ -1,70 +1,70 @@
-$watermelon: #FF3B3F;
+$watermelon: #fc5130;
 $watermelonHover: rgba($watermelon, 0.8);
-$sky: #CAEBF2;
+$sky: #17ace8;
 $skyHover: rgba($sky, 0.7);
-$carbon: #A9A9A9;
+$carbon: #a9a9a9;
 
 .mainContainer {
-    width: 100vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 70px;
-    background-color: white;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 70px;
+  background-color: white;
 }
 
 .menuButton {
-    border: none;
-    outline: none;
-    cursor: pointer;
-    background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
 }
 
 .menuButton:hover {
-    background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .menuImg {
-    width: 40px;
-    height: 40px;
+  width: 40px;
+  height: 40px;
 }
 
 .logo {
-    position: absolute;
-    left: 48%;
-    margin-left: -100px;
-    align-self: center !important;
-    height: 80px;
-    width: 300px;
-    background: none;
+  position: absolute;
+  left: 48%;
+  margin-left: -100px;
+  align-self: center !important;
+  height: 80px;
+  width: 300px;
+  background: none;
 }
 
 .buttonContainer {
-    align-self: flex-end;
+  align-self: flex-end;
 }
 
 .icon {
-    line-height: 70px;
-    vertical-align: middle;
+  line-height: 70px;
+  vertical-align: middle;
 }
 
 .button {
-    font-size: 24px;
-    line-height: 70px;
-    margin-left: 2px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    color: rgba(0, 0, 0, 0.5);
-    background-color: rgba($color: $watermelon, $alpha: 0.3);
-    width: 200px;
+  font-size: 24px;
+  line-height: 70px;
+  margin-left: 2px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.5);
+  background-color: rgba($color: $watermelon, $alpha: 0.3);
+  width: 200px;
 }
 
 .text {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .button:hover {
-    background-color: rgba($color: $watermelon, $alpha: 0.5);
+  background-color: rgba($color: $watermelon, $alpha: 0.5);
 }

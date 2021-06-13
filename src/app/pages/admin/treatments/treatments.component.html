@@ -1,7 +1,25 @@
-<div class="horizontalContainer">
-  <app-treatment
-    *ngFor="let option of this.treatmentOptions"
-    [treatmentData]="option"
-  >
-  </app-treatment>
+<div class="pageLayout">
+  <div *ngIf="boolSmokeScreen" class="smokeScreen"></div>
+  <app-new-treatment *ngIf="boolNewTreatment" (raiseEvent)="clickEvent($event)">
+  </app-new-treatment>
+
+  <app-treatment-details
+    *ngIf="boolTreatmentDetails"
+    [treatmentData]="currentTreatment"
+    (raiseEvent)="clickEvent($event)"
+  ></app-treatment-details>
+
+  <div class="horizontalContainer">
+    <app-treatment
+      *ngFor="let option of this.treatmentOptions"
+      [treatmentData]="option"
+      (raiseEvent)="clickEvent($event)"
+    >
+    </app-treatment>
+    <div class="deviceContainer">
+      <div class="newDevice" (click)="addTreatment()">
+        <img class="newImg" src="../../../assets/icons/add.svg" />
+      </div>
+    </div>
+  </div>
 </div>
