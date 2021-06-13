@@ -28,7 +28,7 @@ export class EmployeesComponent implements OnInit {
       },
       site: "Guácimo",
       payrollType: "Quincenal",
-      salary: 0,
+      salary: 99999,
       email: "fabian152195@gmail.com",
       password: "1234",
       imageURL: "https://i.ytimg.com/vi/AFaezGT6wH0/maxresdefault.jpg",
