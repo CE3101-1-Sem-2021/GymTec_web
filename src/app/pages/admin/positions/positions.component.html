@@ -1,1 +1,25 @@
-<p>positions works!</p>
+<div class="pageLayout">
+  <div *ngIf="boolSmokeScreen" class="smokeScreen"></div>
+  <app-new-position *ngIf="boolNewPosition" (raiseEvent)="clickEvent($event)">
+  </app-new-position>
+
+  <app-position-details
+    *ngIf="boolPositionDetails"
+    [positionData]="currentPosition"
+    (raiseEvent)="clickEvent($event)"
+  ></app-position-details>
+
+  <div class="horizontalContainer">
+    <app-position
+      *ngFor="let option of this.positionOptions"
+      [positionData]="option"
+      (raiseEvent)="clickEvent($event)"
+    >
+    </app-position>
+    <div class="deviceContainer">
+      <div class="newDevice" (click)="addEquipment()">
+        <img class="newImg" src="../../../assets/icons/add.svg" />
+      </div>
+    </div>
+  </div>
+</div>
