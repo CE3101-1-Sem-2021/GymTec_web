@@ -1,0 +1,25 @@
+<mat-card class="mainCard">
+  <div class="iconContainer">
+    <img
+      class="icon"
+      src="../../../../assets/icons/return.svg"
+      (click)="return()"
+    />
+
+    <img
+      class="icon"
+      src="../../../../assets/icons/save.svg"
+      (click)="saveChanges()"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Nombre:</h1>
+    <input type="text" class="input clickable" [(ngModel)]="newProduct.name" />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">ID:</h1>
+    <input type="number" class="input clickable" [(ngModel)]="newProduct.ID" />
+  </div>
+</mat-card>

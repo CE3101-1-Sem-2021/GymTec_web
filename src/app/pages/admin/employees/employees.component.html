@@ -1,1 +1,25 @@
-<p>employees works!</p>
+<div class="pageLayout">
+  <div *ngIf="boolSmokeScreen" class="smokeScreen"></div>
+  <app-new-employee *ngIf="boolNewEmployee" (raiseEvent)="clickEvent($event)">
+  </app-new-employee>
+
+  <app-employee-details
+    *ngIf="boolEmployeeDetails"
+    [employeeData]="currentEmployee"
+    (raiseEvent)="clickEvent($event)"
+  ></app-employee-details>
+
+  <div class="horizontalContainer">
+    <app-employee
+      *ngFor="let option of this.employeeOptions"
+      [employeeData]="option"
+      (raiseEvent)="clickEvent($event)"
+    >
+    </app-employee>
+    <div class="deviceContainer">
+      <div class="newDevice" (click)="addEquipment()">
+        <img class="newImg" src="../../../assets/icons/add.svg" />
+      </div>
+    </div>
+  </div>
+</div>

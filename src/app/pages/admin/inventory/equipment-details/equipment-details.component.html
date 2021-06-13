@@ -1,0 +1,97 @@
+<mat-card class="mainCard" *ngIf="!edit">
+  <div class="iconContainer">
+    <img
+      class="icon"
+      src="../../../../assets/icons/return.svg"
+      (click)="return()"
+    />
+
+    <img
+      class="icon"
+      src="../../../../assets/icons/edit.svg"
+      (click)="editProduct()"
+    />
+  </div>
+
+  <p>Nombre: {{ equipmentData.name }}</p>
+  <p>Marca: {{ equipmentData.brand }}</p>
+  <p>Precio: {{ equipmentData.price }}</p>
+  <p>SerialNo: {{ equipmentData.serialNo }}</p>
+  <p>Sucursal: {{ equipmentData.site }}</p>
+  <p>Tipo: {{ equipmentData.type }}</p>
+</mat-card>
+
+<mat-card class="mainCard" *ngIf="edit">
+  <div class="iconContainer">
+    <img
+      class="icon"
+      src="../../../../assets/icons/return.svg"
+      (click)="cancel()"
+    />
+
+    <img
+      class="icon"
+      src="../../../../assets/icons/save.svg"
+      (click)="saveChanges()"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Nombre:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableTreatmentData.name"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Marca:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableTreatmentData.brand"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Precio:</h1>
+    <input
+      type="number"
+      class="input clickable"
+      [(ngModel)]="editableTreatmentData.price"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">SerialNo:</h1>
+    <input
+      type="number"
+      class="input clickable"
+      [(ngModel)]="editableTreatmentData.serialNo"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Sucursal:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableTreatmentData.site"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Tipo:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableTreatmentData.type"
+    />
+  </div>
+
+  <button class="deleteButton" (click)="delete()">
+    <img class="icon" src="../../../../assets/icons/remove.svg" />
+    Eliminar equipo
+  </button>
+</mat-card>

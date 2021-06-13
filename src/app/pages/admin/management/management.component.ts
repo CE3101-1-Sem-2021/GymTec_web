@@ -40,7 +40,7 @@ export class ManagementComponent implements OnInit {
     {
       title: "Tipos de equipo",
       image: "https://i.ytimg.com/vi/AFaezGT6wH0/maxresdefault.jpg",
-      url: "pages/admin/equipment",
+      url: "pages/admin/equipment-type",
     },
     {
       title: "Inventario",
