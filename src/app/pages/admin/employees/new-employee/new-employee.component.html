@@ -1,0 +1,110 @@
+<mat-card class="mainCard">
+  <div class="iconContainer">
+    <img
+      class="icon"
+      src="../../../../assets/icons/return.svg"
+      (click)="return()"
+    />
+
+    <img
+      class="icon"
+      src="../../../../assets/icons/save.svg"
+      (click)="saveChanges()"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Nombre:</h1>
+    <input type="text" class="input clickable" [(ngModel)]="newEmployee.name" />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Apellidos:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="newEmployee.lastNames"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">ID:</h1>
+    <input type="text" class="input clickable" [(ngModel)]="newEmployee.ID" />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Province:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="newEmployee.province"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Cantón:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="newEmployee.canton"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Distrito:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="newEmployee.district"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Email:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="newEmployee.email"
+    />
+  </div>
+  <div class="line">
+    <h1 class="tag">Contraseña:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="newEmployee.password"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Planilla:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="newEmployee.payrollType"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Puesto:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="newEmployee.position.name"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Salario:</h1>
+    <input
+      type="number"
+      class="input clickable"
+      [(ngModel)]="newEmployee.salary"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Sucursal:</h1>
+    <input type="text" class="input clickable" [(ngModel)]="newEmployee.site" />
+  </div>
+</mat-card>

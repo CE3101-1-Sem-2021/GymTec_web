@@ -1,0 +1,157 @@
+<mat-card class="mainCard" *ngIf="!edit">
+  <div class="iconContainer">
+    <img
+      class="icon"
+      src="../../../../assets/icons/return.svg"
+      (click)="return()"
+    />
+
+    <img
+      class="icon"
+      src="../../../../assets/icons/edit.svg"
+      (click)="editProduct()"
+    />
+  </div>
+
+  <p>Nombre: {{ employeeData.name }}</p>
+
+  <p>Apellidos: {{ employeeData.lastNames }}</p>
+
+  <p>Email: {{ employeeData.email }}</p>
+
+  <p>ID: {{ employeeData.ID }}</p>
+
+  <p>Provincia: {{ employeeData.province }}</p>
+
+  <p>Cantón: {{ employeeData.canton }}</p>
+
+  <p>Distrito: {{ employeeData.district }}</p>
+
+  <p>Planilla: {{ employeeData.payrollType }}</p>
+
+  <p>Puesto: {{ employeeData.position.name }}</p>
+
+  <p>Salario: {{ employeeData.salary }}</p>
+
+  <p>Sucursal: {{ employeeData.site }}</p>
+</mat-card>
+
+<mat-card class="mainCard" *ngIf="edit">
+  <div class="iconContainer">
+    <img
+      class="icon"
+      src="../../../../assets/icons/return.svg"
+      (click)="cancel()"
+    />
+
+    <img
+      class="icon"
+      src="../../../../assets/icons/save.svg"
+      (click)="saveChanges()"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Nombre:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableEmployeeData.name"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Apellidos:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableEmployeeData.lastNames"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">ID:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableEmployeeData.ID"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Email:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableEmployeeData.email"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Provincia:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableEmployeeData.province"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Cantón:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableEmployeeData.canton"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Distrito:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableEmployeeData.district"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Planilla:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableEmployeeData.payrollType"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Puesto:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableEmployeeData.position.name"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Salario:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableEmployeeData.salary"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Sucursal:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableEmployeeData.site"
+    />
+  </div>
+
+  <button class="deleteButton" (click)="delete()">
+    <img class="icon" src="../../../../assets/icons/remove.svg" />
+    Eliminar equipo
+  </button>
+</mat-card>

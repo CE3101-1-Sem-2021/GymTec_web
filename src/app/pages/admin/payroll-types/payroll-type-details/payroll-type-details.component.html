@@ -1,0 +1,57 @@
+<mat-card class="mainCard" *ngIf="!edit">
+  <div class="iconContainer">
+    <img
+      class="icon"
+      src="../../../../assets/icons/return.svg"
+      (click)="return()"
+    />
+
+    <img
+      class="icon"
+      src="../../../../assets/icons/edit.svg"
+      (click)="editProduct()"
+    />
+  </div>
+
+  <p>Nombre: {{ payrollTypeData.name }}</p>
+  <p>Descripción: {{ payrollTypeData.description }}</p>
+</mat-card>
+
+<mat-card class="mainCard" *ngIf="edit">
+  <div class="iconContainer">
+    <img
+      class="icon"
+      src="../../../../assets/icons/return.svg"
+      (click)="cancel()"
+    />
+
+    <img
+      class="icon"
+      src="../../../../assets/icons/save.svg"
+      (click)="saveChanges()"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Nombre:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editablePayrollTypeData.name"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Descripción:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editablePayrollTypeData.description"
+    />
+  </div>
+
+  <button class="deleteButton" (click)="delete()">
+    <img class="icon" src="../../../../assets/icons/remove.svg" />
+    Eliminar equipo
+  </button>
+</mat-card>
