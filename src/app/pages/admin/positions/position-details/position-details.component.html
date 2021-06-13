@@ -1,0 +1,57 @@
+<mat-card class="mainCard" *ngIf="!edit">
+  <div class="iconContainer">
+    <img
+      class="icon"
+      src="../../../../assets/icons/return.svg"
+      (click)="return()"
+    />
+
+    <img
+      class="icon"
+      src="../../../../assets/icons/edit.svg"
+      (click)="editProduct()"
+    />
+  </div>
+
+  <p>Nombre: {{ positionData.name }}</p>
+  <p>Descripción: {{ positionData.description }}</p>
+</mat-card>
+
+<mat-card class="mainCard" *ngIf="edit">
+  <div class="iconContainer">
+    <img
+      class="icon"
+      src="../../../../assets/icons/return.svg"
+      (click)="cancel()"
+    />
+
+    <img
+      class="icon"
+      src="../../../../assets/icons/save.svg"
+      (click)="saveChanges()"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Nombre:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editablePositionData.name"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Descripción:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editablePositionData.description"
+    />
+  </div>
+
+  <button class="deleteButton" (click)="delete()">
+    <img class="icon" src="../../../../assets/icons/remove.svg" />
+    Eliminar equipo
+  </button>
+</mat-card>
