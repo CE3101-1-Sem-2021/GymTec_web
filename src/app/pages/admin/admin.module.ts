@@ -29,6 +29,9 @@ import { EquipmentTypeDetailsComponent } from './equipment-type/equipment-type-d
 import { EmployeeComponent } from './employees/employee/employee.component';
 import { EmployeeDetailsComponent } from './employees/employee-details/employee-details.component';
 import { NewEmployeeComponent } from './employees/new-employee/new-employee.component';
+import { PayrollTypeComponent } from './payroll-types/payroll-type/payroll-type.component';
+import { PayrollTypeDetailsComponent } from './payroll-types/payroll-type-details/payroll-type-details.component';
+import { NewPayrollTypeComponent } from './payroll-types/new-payroll-type/new-payroll-type.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +60,9 @@ import { NewEmployeeComponent } from './employees/new-employee/new-employee.comp
     EmployeeComponent,
     EmployeeDetailsComponent,
     NewEmployeeComponent,
+    PayrollTypeComponent,
+    PayrollTypeDetailsComponent,
+    NewPayrollTypeComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
 })

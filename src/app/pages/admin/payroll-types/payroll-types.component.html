@@ -1,1 +1,28 @@
-<p>payroll-types works!</p>
+<div class="pageLayout">
+  <div *ngIf="boolSmokeScreen" class="smokeScreen"></div>
+  <app-new-payroll-type
+    *ngIf="boolNewPayrollType"
+    (raiseEvent)="clickEvent($event)"
+  >
+  </app-new-payroll-type>
+
+  <app-payroll-type-details
+    *ngIf="boolPayrollTypeDetails"
+    [payrollTypeData]="currentPayrollType"
+    (raiseEvent)="clickEvent($event)"
+  ></app-payroll-type-details>
+
+  <div class="horizontalContainer">
+    <app-payroll-type
+      *ngFor="let option of this.payrollTypeOptions"
+      [payrollTypeData]="option"
+      (raiseEvent)="clickEvent($event)"
+    >
+    </app-payroll-type>
+    <div class="deviceContainer">
+      <div class="newDevice" (click)="addEquipment()">
+        <img class="newImg" src="../../../assets/icons/add.svg" />
+      </div>
+    </div>
+  </div>
+</div>

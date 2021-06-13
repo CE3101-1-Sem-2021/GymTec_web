@@ -1,4 +1,5 @@
 export class PayrollType {
-    name = '';
-    description = '';
+  name = "";
+  description = "";
+  imageURL = "";
 }
