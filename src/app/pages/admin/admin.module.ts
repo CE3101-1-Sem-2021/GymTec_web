@@ -12,14 +12,16 @@ import { PositionsComponent } from "./positions/positions.component";
 import { PayrollsComponent } from "./payrolls/payrolls.component";
 import { EmployeesComponent } from "./employees/employees.component";
 import { ServicesComponent } from "./services/services.component";
-import { EquipmentComponent } from "./equipment/equipment.component";
+import { EquipmentComponent } from "./inventory/equipment/equipment.component";
 import { InventoryComponent } from "./inventory/inventory.component";
 import { ProductsComponent } from "./products/products.component";
 import { PayrollTypesComponent } from "./payroll-types/payroll-types.component";
 import { MenuOptionComponent } from "./menu-option/menu-option.component";
 import { TreatmentComponent } from "./treatments/treatment/treatment.component";
 import { NewTreatmentComponent } from "./treatments/new-treatment/new-treatment.component";
-import { TreatmentDetailsComponent } from './treatments/treatment-details/treatment-details.component';
+import { TreatmentDetailsComponent } from "./treatments/treatment-details/treatment-details.component";
+import { EquipmentDetailsComponent } from './inventory/equipment-details/equipment-details.component';
+import { NewEquipmentComponent } from './inventory/new-equipment/new-equipment.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { TreatmentDetailsComponent } from './treatments/treatment-details/treatm
     TreatmentComponent,
     NewTreatmentComponent,
     TreatmentDetailsComponent,
+    EquipmentDetailsComponent,
+    NewEquipmentComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
 })

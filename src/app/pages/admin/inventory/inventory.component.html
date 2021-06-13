@@ -1,1 +1,25 @@
-<p>inventory works!</p>
+<div class="pageLayout">
+  <div *ngIf="boolSmokeScreen" class="smokeScreen"></div>
+  <app-new-equipment *ngIf="boolNewEquipment" (raiseEvent)="clickEvent($event)">
+  </app-new-equipment>
+
+  <app-equipment-details
+    *ngIf="boolEquipmentDetails"
+    [equipmentData]="currentEquipment"
+    (raiseEvent)="clickEvent($event)"
+  ></app-equipment-details>
+
+  <div class="horizontalContainer">
+    <app-equipment
+      *ngFor="let option of this.equipmentOptions"
+      [equipmentData]="option"
+      (raiseEvent)="clickEvent($event)"
+    >
+    </app-equipment>
+    <div class="deviceContainer">
+      <div class="newDevice" (click)="addEquipment()">
+        <img class="newImg" src="../../../assets/icons/add.svg" />
+      </div>
+    </div>
+  </div>
+</div>
