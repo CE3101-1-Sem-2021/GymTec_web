@@ -35,6 +35,12 @@ import { NewPayrollTypeComponent } from './payroll-types/new-payroll-type/new-pa
 import { PositionComponent } from './positions/position/position.component';
 import { PositionDetailsComponent } from './positions/position-details/position-details.component';
 import { NewPositionComponent } from './positions/new-position/new-position.component';
+import { SiteComponent } from './sites/site/site.component';
+import { SiteDetailsComponent } from './sites/site-details/site-details.component';
+import { NewSiteComponent } from './sites/new-site/new-site.component';
+import { ServiceComponent } from './services/service/service.component';
+import { ServiceDetailsComponent } from './services/service-details/service-details.component';
+import { NewServiceComponent } from './services/new-service/new-service.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +75,12 @@ import { NewPositionComponent } from './positions/new-position/new-position.comp
     PositionComponent,
     PositionDetailsComponent,
     NewPositionComponent,
+    SiteComponent,
+    SiteDetailsComponent,
+    NewSiteComponent,
+    ServiceComponent,
+    ServiceDetailsComponent,
+    NewServiceComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
 })

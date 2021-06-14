@@ -1,1 +1,25 @@
-<p>services works!</p>
+<div class="pageLayout">
+  <div *ngIf="boolSmokeScreen" class="smokeScreen"></div>
+  <app-new-service *ngIf="boolNewService" (raiseEvent)="clickEvent($event)">
+  </app-new-service>
+
+  <app-service-details
+    *ngIf="boolServiceDetails"
+    [serviceData]="currentService"
+    (raiseEvent)="clickEvent($event)"
+  ></app-service-details>
+
+  <div class="horizontalContainer">
+    <app-service
+      *ngFor="let option of this.serviceOptions"
+      [serviceData]="option"
+      (raiseEvent)="clickEvent($event)"
+    >
+    </app-service>
+    <div class="deviceContainer">
+      <div class="newDevice" (click)="addEquipment()">
+        <img class="newImg" src="../../../assets/icons/add.svg" />
+      </div>
+    </div>
+  </div>
+</div>

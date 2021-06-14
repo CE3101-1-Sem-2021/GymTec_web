@@ -1,4 +1,5 @@
-export class Service { 
-    name = '';
-    description = '';
+export class Service {
+  name = "";
+  description = "";
+  imageURL = "";
 }

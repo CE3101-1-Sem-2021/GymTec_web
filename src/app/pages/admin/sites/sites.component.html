@@ -1,1 +1,25 @@
-<p>sites works!</p>
+<div class="pageLayout">
+  <div *ngIf="boolSmokeScreen" class="smokeScreen"></div>
+  <app-new-site *ngIf="boolNewSite" (raiseEvent)="clickEvent($event)">
+  </app-new-site>
+
+  <app-site-details
+    *ngIf="boolSiteDetails"
+    [siteData]="currentSite"
+    (raiseEvent)="clickEvent($event)"
+  ></app-site-details>
+
+  <div class="horizontalContainer">
+    <app-site
+      *ngFor="let option of this.siteOptions"
+      [siteData]="option"
+      (raiseEvent)="clickEvent($event)"
+    >
+    </app-site>
+    <div class="deviceContainer">
+      <div class="newDevice" (click)="addEquipment()">
+        <img class="newImg" src="../../../assets/icons/add.svg" />
+      </div>
+    </div>
+  </div>
+</div>
