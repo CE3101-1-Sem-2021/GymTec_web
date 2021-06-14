@@ -1,0 +1,77 @@
+<mat-card class="mainCard" *ngIf="!edit">
+  <div class="iconContainer">
+    <img
+      class="icon"
+      src="../../../../assets/icons/return.svg"
+      (click)="return()"
+    />
+
+    <img
+      class="icon"
+      src="../../../../assets/icons/edit.svg"
+      (click)="editProduct()"
+    />
+  </div>
+
+  <p>Nombre: {{ productData.name }}</p>
+  <p>Descripción: {{ productData.description }}</p>
+  <p>Precio: {{ productData.price }}</p>
+  <p>Código barras: {{ productData.barCode }}</p>
+</mat-card>
+
+<mat-card class="mainCard" *ngIf="edit">
+  <div class="iconContainer">
+    <img
+      class="icon"
+      src="../../../../assets/icons/return.svg"
+      (click)="cancel()"
+    />
+
+    <img
+      class="icon"
+      src="../../../../assets/icons/save.svg"
+      (click)="saveChanges()"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Nombre:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableProductData.name"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Descripción:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableProductData.description"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Precio:</h1>
+    <input
+      type="number"
+      class="input clickable"
+      [(ngModel)]="editableProductData.price"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Código barras:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableProductData.barCode"
+    />
+  </div>
+
+  <button class="deleteButton" (click)="delete()">
+    <img class="icon" src="../../../../assets/icons/remove.svg" />
+    Eliminar equipo
+  </button>
+</mat-card>

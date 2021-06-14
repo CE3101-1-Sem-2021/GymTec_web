@@ -1,0 +1,29 @@
+<mat-card class="mainCard">
+  <div class="iconContainer">
+    <img
+      class="icon"
+      src="../../../../assets/icons/return.svg"
+      (click)="return()"
+    />
+
+    <img
+      class="icon"
+      src="../../../../assets/icons/save.svg"
+      (click)="saveChanges()"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Nombre:</h1>
+    <input type="text" class="input clickable" [(ngModel)]="newService.name" />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Descripción:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="newService.description"
+    />
+  </div>
+</mat-card>

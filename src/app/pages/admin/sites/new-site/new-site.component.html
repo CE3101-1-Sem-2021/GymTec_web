@@ -1,0 +1,118 @@
+<mat-card class="mainCard">
+  <div class="iconContainer">
+    <img
+      class="icon"
+      src="../../../../assets/icons/return.svg"
+      (click)="return()"
+    />
+
+    <img
+      class="icon"
+      src="../../../../assets/icons/save.svg"
+      (click)="saveChanges()"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Nombre:</h1>
+    <input type="text" class="input clickable" [(ngModel)]="newSite.name" />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Provincia:</h1>
+    <input type="text" class="input clickable" [(ngModel)]="newSite.province" />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Cantón:</h1>
+    <input type="text" class="input clickable" [(ngModel)]="newSite.canton" />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Distrito:</h1>
+    <input type="text" class="input clickable" [(ngModel)]="newSite.district" />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Capacidad:</h1>
+    <input
+      type="number"
+      class="input clickable"
+      [(ngModel)]="newSite.capacity"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Manager ID:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="newSite.managerID"
+    />
+  </div>
+
+  <div class="bottomContainer">
+    <h2 class="tag">Número Teléfono:</h2>
+
+    <div class="addressBox" *ngFor="let address of this.newSite.phoneNumber">
+      <h2 class="address">{{ address.Telefono }}</h2>
+      <img
+        class="icon"
+        src="../../../../assets/icons/remove.svg"
+        (click)="removeAddress(address.Telefono)"
+      />
+    </div>
+
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="newPhoneNumber.Telefono"
+    />
+    <img
+      class="icon"
+      src="../../../../assets/icons/add.svg"
+      (click)="addAddress()"
+    />
+  </div>
+
+  <div class="bottomContainer">
+    <h2 class="tag">Horario:</h2>
+    <div class="addressBox" *ngFor="let address of this.newSite.schedule">
+      <h2 class="address">{{ address.Dia }}</h2>
+      <h2 class="address">{{ address.Hora_Apertura }}</h2>
+      <h2 class="address">{{ address.Hora_Cierre }}</h2>
+      <img
+        class="icon"
+        src="../../../../assets/icons/remove.svg"
+        (click)="removeSchedule(address)"
+      />
+    </div>
+
+    <input
+      type="text"
+      class="input clickable"
+      placeholder="Dia"
+      [(ngModel)]="newSchedule.Dia"
+    />
+
+    <input
+      type="text"
+      class="input clickable"
+      placeholder="Hora inicio"
+      [(ngModel)]="newSchedule.Hora_Apertura"
+    />
+
+    <input
+      type="text"
+      class="input clickable"
+      placeholder="Hora cierre"
+      [(ngModel)]="newSchedule.Hora_Cierre"
+    />
+
+    <img
+      class="icon"
+      src="../../../../assets/icons/add.svg"
+      (click)="addSchedule()"
+    />
+  </div>
+</mat-card>

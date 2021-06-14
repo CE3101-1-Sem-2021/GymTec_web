@@ -1,0 +1,153 @@
+<mat-card class="mainCard" *ngIf="!edit">
+  <div class="iconContainer">
+    <img
+      class="icon"
+      src="../../../../assets/icons/return.svg"
+      (click)="return()"
+    />
+
+    <img
+      class="icon"
+      src="../../../../assets/icons/edit.svg"
+      (click)="editProduct()"
+    />
+  </div>
+
+  <p>Nombre: {{ siteData.name }}</p>
+  <p>Cantón: {{ siteData.canton }}</p>
+  <p>Capacidad: {{ siteData.capacity }}</p>
+  <p>Distrito: {{ siteData.district }}</p>
+  <p>Manager ID: {{ siteData.managerID }}</p>
+  <p>Fecha de apertura: {{ siteData.openingDate }}</p>
+  <p>Numeros de teléfono:</p>
+  <p *ngFor="let telefono of siteData.phoneNumber">{{ telefono.Telefono }}</p>
+  <p>Provincia: {{ siteData.province }}</p>
+  <p>
+    Horario: {{ siteData.schedule[0].Dia }}
+    {{ siteData.schedule[0].Hora_Apertura }}
+    {{ siteData.schedule[0].Hora_Cierre }}
+  </p>
+
+  <button type="button">Activación Spa</button>
+  <button type="button">Activación Tienda</button>
+</mat-card>
+
+<mat-card class="mainCard" *ngIf="edit">
+  <div class="iconContainer">
+    <img
+      class="icon"
+      src="../../../../assets/icons/return.svg"
+      (click)="cancel()"
+    />
+
+    <img
+      class="icon"
+      src="../../../../assets/icons/save.svg"
+      (click)="saveChanges()"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Nombre:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableSiteData.name"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Provincia:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableSiteData.province"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Cantón:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableSiteData.canton"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Distrito:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableSiteData.district"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Capacidad:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableSiteData.capacity"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Manager ID:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableSiteData.managerID"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Fecha de apertura:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableSiteData.openingDate"
+    />
+  </div>
+
+  <div
+    class="line"
+    *ngFor="let telefono of siteData.phoneNumber; let i = index"
+  >
+    <h1 class="tag">Teléfono:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableSiteData.phoneNumber[i].Telefono"
+    />
+  </div>
+
+  <div
+    class="line"
+    *ngFor="let telefono of siteData.phoneNumber; let i = index"
+  >
+    <h1 class="tag">Dia:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableSiteData.schedule[i].Dia"
+    />
+    <h1 class="tag">Hora inicio:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableSiteData.schedule[i].Hora_Apertura"
+    />
+    <h1 class="tag">Hora Final:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="editableSiteData.schedule[i].Hora_Cierre"
+    />
+  </div>
+
+  <button class="deleteButton" (click)="delete()">
+    <img class="icon" src="../../../../assets/icons/remove.svg" />
+    Eliminar equipo
+  </button>
+</mat-card>

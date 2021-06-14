@@ -1,0 +1,136 @@
+$backgroundColor: rgba(
+  $color: #000000,
+  $alpha: 0.05,
+);
+
+.mainCard {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+}
+
+.iconContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.input {
+  width: 75%;
+  margin-bottom: 16px;
+  outline: transparent;
+  border: transparent;
+  font-size: 24px;
+  background-color: $backgroundColor;
+  color: rgba($color: #000000, $alpha: 0.3);
+}
+
+.clickable {
+  background-color: $backgroundColor;
+  outline: transparent;
+  border: transparent;
+}
+
+.icon {
+  margin: 10px;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+}
+
+.icon:hover {
+  background-color: $backgroundColor;
+  border-radius: 5px;
+}
+
+.ingredientContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.ingredientRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 90%;
+}
+
+.ingredientElement {
+  margin-left: 2px;
+  margin-right: 2px;
+  width: 50%;
+}
+
+.deleteIcon {
+  line-height: 70px;
+  vertical-align: middle;
+}
+
+.line {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.tag {
+  width: 30%;
+  margin-right: 10px;
+}
+
+.dropDown {
+  width: 60%;
+}
+
+.addressBox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-bottom: 5px;
+}
+
+.address {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-left: 5px;
+  font-size: 12px;
+  color: #000000;
+  width: 270px;
+}
+
+.bottomContainer {
+  width: 100%;
+  margin-top: 30px;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow-y: auto;
+}
+
+.newAddress {
+  background-color: transparent;
+  outline: transparent;
+  border: transparent;
+  font-size: 12px;
+  color: #000000;
+  width: 270px;
+  margin-bottom: 5px;
+}

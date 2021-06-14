@@ -1,0 +1,47 @@
+<mat-card class="mainCard">
+  <div class="iconContainer">
+    <img
+      class="icon"
+      src="../../../../assets/icons/return.svg"
+      (click)="return()"
+    />
+
+    <img
+      class="icon"
+      src="../../../../assets/icons/save.svg"
+      (click)="saveChanges()"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Nombre:</h1>
+    <input type="text" class="input clickable" [(ngModel)]="newProduct.name" />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Descripción:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="newProduct.description"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Precio:</h1>
+    <input
+      type="number"
+      class="input clickable"
+      [(ngModel)]="newProduct.price"
+    />
+  </div>
+
+  <div class="line">
+    <h1 class="tag">Código barras:</h1>
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="newProduct.barCode"
+    />
+  </div>
+</mat-card>
