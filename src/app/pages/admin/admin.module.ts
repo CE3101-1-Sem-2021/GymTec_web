@@ -41,6 +41,9 @@ import { NewSiteComponent } from './sites/new-site/new-site.component';
 import { ServiceComponent } from './services/service/service.component';
 import { ServiceDetailsComponent } from './services/service-details/service-details.component';
 import { NewServiceComponent } from './services/new-service/new-service.component';
+import { ProductComponent } from './products/product/product.component';
+import { ProductDetailsComponent } from './products/product-details/product-details.component';
+import { NewProductComponent } from './products/new-product/new-product.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +84,9 @@ import { NewServiceComponent } from './services/new-service/new-service.componen
     ServiceComponent,
     ServiceDetailsComponent,
     NewServiceComponent,
+    ProductComponent,
+    ProductDetailsComponent,
+    NewProductComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
 })

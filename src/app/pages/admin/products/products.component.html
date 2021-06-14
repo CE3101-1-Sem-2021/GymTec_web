@@ -1,1 +1,25 @@
-<p>products works!</p>
+<div class="pageLayout">
+  <div *ngIf="boolSmokeScreen" class="smokeScreen"></div>
+  <app-new-product *ngIf="boolNewProduct" (raiseEvent)="clickEvent($event)">
+  </app-new-product>
+
+  <app-product-details
+    *ngIf="boolProductDetails"
+    [productData]="currentProduct"
+    (raiseEvent)="clickEvent($event)"
+  ></app-product-details>
+
+  <div class="horizontalContainer">
+    <app-product
+      *ngFor="let option of this.productOptions"
+      [productData]="option"
+      (raiseEvent)="clickEvent($event)"
+    >
+    </app-product>
+    <div class="deviceContainer">
+      <div class="newDevice" (click)="addEquipment()">
+        <img class="newImg" src="../../../assets/icons/add.svg" />
+      </div>
+    </div>
+  </div>
+</div>
