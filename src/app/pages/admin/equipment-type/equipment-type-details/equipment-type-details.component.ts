@@ -16,10 +16,10 @@ export class EquipmentTypeDetailsComponent implements OnInit {
   editableEquipmentTypeData = new EquipmentType();
 
   ngOnInit(): void {
-    this.editableEquipmentTypeData.name = this.equipmentTypeData.name;
+    this.editableEquipmentTypeData.Nombre = this.equipmentTypeData.Nombre;
     this.editableEquipmentTypeData.imageURL = this.equipmentTypeData.imageURL;
-    this.editableEquipmentTypeData.description =
-      this.equipmentTypeData.description;
+    this.editableEquipmentTypeData.Descripcion =
+      this.equipmentTypeData.Descripcion;
   }
 
   saveChanges() {

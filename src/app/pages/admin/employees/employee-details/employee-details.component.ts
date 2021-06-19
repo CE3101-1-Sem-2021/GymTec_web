@@ -16,19 +16,19 @@ export class EmployeeDetailsComponent implements OnInit {
   editableEmployeeData = new Employee();
 
   ngOnInit(): void {
-    this.editableEmployeeData.ID = this.employeeData.ID;
-    this.editableEmployeeData.canton = this.employeeData.canton;
-    this.editableEmployeeData.district = this.employeeData.district;
-    this.editableEmployeeData.email = this.employeeData.email;
+    this.editableEmployeeData.Cedula = this.employeeData.Cedula;
+    this.editableEmployeeData.Canton = this.employeeData.Canton;
+    this.editableEmployeeData.Distrito = this.employeeData.Distrito;
+    this.editableEmployeeData.Email = this.employeeData.Email;
     this.editableEmployeeData.imageURL = this.employeeData.imageURL;
-    this.editableEmployeeData.lastNames = this.employeeData.lastNames;
-    this.editableEmployeeData.name = this.employeeData.name;
-    this.editableEmployeeData.password = this.employeeData.password;
-    this.editableEmployeeData.payrollType = this.employeeData.payrollType;
-    this.editableEmployeeData.position = this.employeeData.position;
-    this.editableEmployeeData.province = this.employeeData.province;
-    this.editableEmployeeData.salary = this.employeeData.salary;
-    this.editableEmployeeData.site = this.employeeData.site;
+    this.editableEmployeeData.Apellidos = this.employeeData.Apellidos;
+    this.editableEmployeeData.Nombre = this.employeeData.Nombre;
+    this.editableEmployeeData.Contraseña = this.employeeData.Contraseña;
+    this.editableEmployeeData.Planilla = this.employeeData.Planilla;
+    this.editableEmployeeData.Puesto = this.employeeData.Puesto;
+    this.editableEmployeeData.Provincia = this.employeeData.Provincia;
+    this.editableEmployeeData.Salario = this.employeeData.Salario;
+    this.editableEmployeeData.Sucursal = this.employeeData.Sucursal;
   }
 
   saveChanges() {

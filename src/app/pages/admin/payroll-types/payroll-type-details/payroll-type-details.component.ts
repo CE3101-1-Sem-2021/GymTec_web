@@ -17,9 +17,9 @@ export class PayrollTypeDetailsComponent implements OnInit {
   editablePayrollTypeData = new PayrollType();
 
   ngOnInit(): void {
-    this.editablePayrollTypeData.name = this.payrollTypeData.name;
+    this.editablePayrollTypeData.Nombre = this.payrollTypeData.Nombre;
     this.editablePayrollTypeData.imageURL = this.payrollTypeData.imageURL;
-    this.editablePayrollTypeData.description = this.payrollTypeData.description;
+    this.editablePayrollTypeData.Descripcion = this.payrollTypeData.Descripcion;
   }
 
   saveChanges() {

@@ -15,10 +15,10 @@ export class ProductsComponent implements OnInit {
 
   productOptions = [
     {
-      name: "Pesa",
-      barCode: "10929300",
-      description: "Ci",
-      price: 0,
+      Nombre: "Pesa",
+      Codigo_Barras: "10929300",
+      Descripcion: "Ci",
+      Costo: 0,
       imageURL: "https://i.ytimg.com/vi/AFaezGT6wH0/maxresdefault.jpg",
     },
   ];

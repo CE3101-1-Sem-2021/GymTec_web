@@ -16,8 +16,8 @@ export class TreatmentDetailsComponent implements OnInit {
   editableTreatmentData = new Treatment();
 
   ngOnInit(): void {
-    this.editableTreatmentData.ID = this.treatmentData.ID;
-    this.editableTreatmentData.name = this.treatmentData.name;
+    this.editableTreatmentData.Id = this.treatmentData.Id;
+    this.editableTreatmentData.Nombre = this.treatmentData.Nombre;
     this.editableTreatmentData.imageURL = this.treatmentData.imageURL;
   }
 

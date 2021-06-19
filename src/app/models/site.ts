@@ -2,16 +2,16 @@ import { SitePhoneNumber } from "./site-phoneNumber";
 import { SiteSchedule } from "./site-schedule";
 
 export class Site {
-  name = "";
-  province = "";
-  canton = "";
-  district = "";
-  openingDate = "";
-  schedule = [new SiteSchedule()];
-  managerID = "";
-  capacity = 0;
-  phoneNumber = [new SitePhoneNumber()];
-  boolSpa = false;
-  boolStore = false;
+  Nombre = "";
+  Provincia = "";
+  Canton = "";
+  Distrito = "";
+  Fecha_Apertura = "";
+  Horarios: SiteSchedule[] = [];
+  Gerente = "";
+  Capacidad_Max = 0;
+  Telefonos: SitePhoneNumber[] = [];
+  Spa_Act = false;
+  Tienda_Act = false;
   imageURL = "";
 }

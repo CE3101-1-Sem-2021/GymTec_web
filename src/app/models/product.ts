@@ -1,7 +1,7 @@
 export class Product {
-  name = "";
-  barCode = "";
-  description = "";
-  price = 0;
+  Nombre = "";
+  Codigo_Barras = "";
+  Descripcion = "";
+  Costo = 0;
   imageURL = "";
 }

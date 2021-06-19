@@ -13,27 +13,27 @@
     />
   </div>
 
-  <p>Nombre: {{ employeeData.name }}</p>
+  <p>Nombre: {{ employeeData.Nombre }}</p>
 
-  <p>Apellidos: {{ employeeData.lastNames }}</p>
+  <p>Apellidos: {{ employeeData.Apellidos }}</p>
 
-  <p>Email: {{ employeeData.email }}</p>
+  <p>Email: {{ employeeData.Email }}</p>
 
-  <p>ID: {{ employeeData.ID }}</p>
+  <p>Cedula: {{ employeeData.Cedula }}</p>
 
-  <p>Provincia: {{ employeeData.province }}</p>
+  <p>Provincia: {{ employeeData.Provincia }}</p>
 
-  <p>Cantón: {{ employeeData.canton }}</p>
+  <p>Cantón: {{ employeeData.Canton }}</p>
 
-  <p>Distrito: {{ employeeData.district }}</p>
+  <p>Distrito: {{ employeeData.Distrito }}</p>
 
-  <p>Planilla: {{ employeeData.payrollType }}</p>
+  <p>Planilla: {{ employeeData.Planilla }}</p>
 
-  <p>Puesto: {{ employeeData.position.name }}</p>
+  <p>Puesto: {{ employeeData.Puesto }}</p>
 
-  <p>Salario: {{ employeeData.salary }}</p>
+  <p>Salario: {{ employeeData.Salario }}</p>
 
-  <p>Sucursal: {{ employeeData.site }}</p>
+  <p>Sucursal: {{ employeeData.Sucursal }}</p>
 </mat-card>
 
 <mat-card class="mainCard" *ngIf="edit">
@@ -56,7 +56,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableEmployeeData.name"
+      [(ngModel)]="editableEmployeeData.Nombre"
     />
   </div>
 
@@ -65,16 +65,16 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableEmployeeData.lastNames"
+      [(ngModel)]="editableEmployeeData.Apellidos"
     />
   </div>
 
   <div class="line">
-    <h1 class="tag">ID:</h1>
+    <h1 class="tag">Cedula:</h1>
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableEmployeeData.ID"
+      [(ngModel)]="editableEmployeeData.Cedula"
     />
   </div>
 
@@ -83,7 +83,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableEmployeeData.email"
+      [(ngModel)]="editableEmployeeData.Email"
     />
   </div>
 
@@ -92,7 +92,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableEmployeeData.province"
+      [(ngModel)]="editableEmployeeData.Provincia"
     />
   </div>
 
@@ -101,7 +101,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableEmployeeData.canton"
+      [(ngModel)]="editableEmployeeData.Canton"
     />
   </div>
 
@@ -110,7 +110,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableEmployeeData.district"
+      [(ngModel)]="editableEmployeeData.Distrito"
     />
   </div>
 
@@ -119,7 +119,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableEmployeeData.payrollType"
+      [(ngModel)]="editableEmployeeData.Planilla"
     />
   </div>
 
@@ -128,7 +128,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableEmployeeData.position.name"
+      [(ngModel)]="editableEmployeeData.Puesto"
     />
   </div>
 
@@ -137,7 +137,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableEmployeeData.salary"
+      [(ngModel)]="editableEmployeeData.Salario"
     />
   </div>
 
@@ -146,7 +146,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableEmployeeData.site"
+      [(ngModel)]="editableEmployeeData.Sucursal"
     />
   </div>
 

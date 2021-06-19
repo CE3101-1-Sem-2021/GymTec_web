@@ -16,8 +16,8 @@ export class ServiceDetailsComponent implements OnInit {
   editableServiceData = new Service();
 
   ngOnInit(): void {
-    this.editableServiceData.description = this.serviceData.description;
-    this.editableServiceData.name = this.serviceData.name;
+    this.editableServiceData.Descripcion = this.serviceData.Descripcion;
+    this.editableServiceData.Nombre = this.serviceData.Nombre;
     this.editableServiceData.imageURL = this.serviceData.imageURL;
   }
 

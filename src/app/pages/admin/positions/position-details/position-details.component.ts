@@ -16,9 +16,9 @@ export class PositionDetailsComponent implements OnInit {
   editablePositionData = new Position();
 
   ngOnInit(): void {
-    this.editablePositionData.name = this.positionData.name;
+    this.editablePositionData.Nombre = this.positionData.Nombre;
     this.editablePositionData.imageURL = this.positionData.imageURL;
-    this.editablePositionData.description = this.positionData.description;
+    this.editablePositionData.Descripcion = this.positionData.Descripcion;
   }
 
   saveChanges() {

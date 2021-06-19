@@ -15,8 +15,8 @@ export class EquipmentTypeComponent implements OnInit {
 
   equipmentTypeOptions = [
     {
-      name: "multigimnasio",
-      description: "ci",
+      Nombre: "multigimnasio",
+      Descripcion: "ci",
       imageURL: "https://i.ytimg.com/vi/AFaezGT6wH0/maxresdefault.jpg",
     },
   ];

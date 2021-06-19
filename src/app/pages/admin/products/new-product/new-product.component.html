@@ -15,7 +15,11 @@
 
   <div class="line">
     <h1 class="tag">Nombre:</h1>
-    <input type="text" class="input clickable" [(ngModel)]="newProduct.name" />
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="newProduct.Nombre"
+    />
   </div>
 
   <div class="line">
@@ -23,7 +27,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="newProduct.description"
+      [(ngModel)]="newProduct.Descripcion"
     />
   </div>
 
@@ -32,7 +36,7 @@
     <input
       type="number"
       class="input clickable"
-      [(ngModel)]="newProduct.price"
+      [(ngModel)]="newProduct.Costo"
     />
   </div>
 
@@ -41,7 +45,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="newProduct.barCode"
+      [(ngModel)]="newProduct.Codigo_Barras"
     />
   </div>
 </mat-card>

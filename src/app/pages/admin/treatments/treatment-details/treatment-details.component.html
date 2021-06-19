@@ -13,8 +13,8 @@
     />
   </div>
 
-  <p>Nombre: {{ treatmentData.name }}</p>
-  <p>ID: {{ treatmentData.ID }}</p>
+  <p>Nombre: {{ treatmentData.Nombre }}</p>
+  <p>ID: {{ treatmentData.Id }}</p>
 </mat-card>
 
 <mat-card class="mainCard" *ngIf="edit">
@@ -37,16 +37,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableTreatmentData.name"
-    />
-  </div>
-
-  <div class="line">
-    <h1 class="tag">ID:</h1>
-    <input
-      type="number"
-      class="input clickable"
-      [(ngModel)]="editableTreatmentData.ID"
+      [(ngModel)]="editableTreatmentData.Nombre"
     />
   </div>
 

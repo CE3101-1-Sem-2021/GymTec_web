@@ -16,13 +16,12 @@ export class EquipmentDetailsComponent implements OnInit {
   editableTreatmentData = new Equipment();
 
   ngOnInit(): void {
-    this.editableTreatmentData.brand = this.equipmentData.brand;
+    this.editableTreatmentData.Marca = this.equipmentData.Marca;
     this.editableTreatmentData.imageURL = this.equipmentData.imageURL;
-    this.editableTreatmentData.name = this.equipmentData.name;
-    this.editableTreatmentData.price = this.equipmentData.price;
-    this.editableTreatmentData.serialNo = this.equipmentData.serialNo;
-    this.editableTreatmentData.site = this.equipmentData.site;
-    this.editableTreatmentData.type = this.equipmentData.type;
+    this.editableTreatmentData.Costo = this.equipmentData.Costo;
+    this.editableTreatmentData.Serial = this.equipmentData.Serial;
+    this.editableTreatmentData.Sucursal = this.equipmentData.Sucursal;
+    this.editableTreatmentData.Tipo_Equipo = this.equipmentData.Tipo_Equipo;
   }
 
   saveChanges() {

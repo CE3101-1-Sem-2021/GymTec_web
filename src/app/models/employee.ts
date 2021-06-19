@@ -1,17 +1,18 @@
 import { Position } from "./position";
 
 export class Employee {
-  ID = "";
-  name = "";
-  lastNames = "";
-  province = "";
-  canton = "";
-  district = "";
-  position: Position = new Position();
-  site = "";
-  payrollType = "";
-  salary = 0;
-  email = "";
-  password = "";
+  Cedula = "";
+  Nombre = "";
+  Apellidos = "";
+  Provincia = "";
+  Canton = "";
+  Distrito = "";
+  Puesto = "";
+  Sucursal = "";
+  Planilla = "";
+  Salario = 0;
+  Email = "";
+  Contraseña = "";
+  Contrasena = "";
   imageURL = "";
 }

@@ -1,5 +1,5 @@
 export class Treatment {
-    name = '';
-    ID = '';
-    imageURL = '';
+  Nombre = "";
+  Id = "";
+  imageURL = "";
 }

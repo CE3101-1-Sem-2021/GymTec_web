@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { EventData } from "src/app/models/event-data";
 import { Position } from "src/app/models/position";
+import { AdminService } from "src/app/services/admin.service";
+import { PositionsServiceService } from "../positions-service.service";
 
 @Component({
   selector: "app-new-position",
@@ -11,7 +13,10 @@ export class NewPositionComponent implements OnInit {
   @Output() raiseEvent = new EventEmitter<EventData>();
 
   newPosition = new Position();
-  constructor() {}
+  constructor(
+    public positionsService: PositionsServiceService,
+    public adminService: AdminService
+  ) {}
 
   ngOnInit(): void {}
   saveChanges() {

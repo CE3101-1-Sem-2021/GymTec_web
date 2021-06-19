@@ -15,12 +15,12 @@ export class SitesComponent implements OnInit {
 
   siteOptions = [
     {
-      name: "Guácimo",
-      province: "Limón",
-      canton: "Guácimo",
-      district: "Centro",
-      openingDate: "2020-01-07T00:00:00",
-      schedule: [
+      Nombre: "Guácimo",
+      Provincia: "Limón",
+      Canton: "Guácimo",
+      Distrito: "Centro",
+      Fecha_Apertura: "2020-01-07T00:00:00",
+      Horarios: [
         {
           Dia: "Jueves",
           Sucursal: "Guácimo",
@@ -28,16 +28,16 @@ export class SitesComponent implements OnInit {
           Hora_Cierre: "17:00:00",
         },
       ],
-      managerID: "1234",
-      capacity: 0,
-      phoneNumber: [
+      Gerente: "1234",
+      Capacidad_Max: 0,
+      Telefonos: [
         {
           Telefono: "87249591",
           Sucursal: "Guácimo",
         },
       ],
-      boolSpa: false,
-      boolStore: false,
+      Spa_Act: false,
+      Tienda_Act: false,
       imageURL: "https://i.ytimg.com/vi/AFaezGT6wH0/maxresdefault.jpg",
     },
   ];

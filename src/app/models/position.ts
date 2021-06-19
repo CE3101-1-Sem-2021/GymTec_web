@@ -1,5 +1,5 @@
 export class Position {
-  name = "";
-  description = "";
+  Nombre = "";
+  Descripcion = "";
   imageURL = "";
 }

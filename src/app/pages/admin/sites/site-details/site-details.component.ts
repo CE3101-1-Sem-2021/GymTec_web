@@ -16,18 +16,18 @@ export class SiteDetailsComponent implements OnInit {
   editableSiteData = new Site();
 
   ngOnInit(): void {
-    this.editableSiteData.name = this.siteData.name;
-    this.editableSiteData.boolSpa = this.siteData.boolSpa;
-    this.editableSiteData.boolStore = this.siteData.boolStore;
-    this.editableSiteData.canton = this.siteData.canton;
-    this.editableSiteData.capacity = this.siteData.capacity;
-    this.editableSiteData.district = this.siteData.district;
+    this.editableSiteData.Nombre = this.siteData.Nombre;
+    this.editableSiteData.Spa_Act = this.siteData.Spa_Act;
+    this.editableSiteData.Tienda_Act = this.siteData.Tienda_Act;
+    this.editableSiteData.Canton = this.siteData.Canton;
+    this.editableSiteData.Capacidad_Max = this.siteData.Capacidad_Max;
+    this.editableSiteData.Distrito = this.siteData.Distrito;
     this.editableSiteData.imageURL = this.siteData.imageURL;
-    this.editableSiteData.managerID = this.siteData.managerID;
-    this.editableSiteData.openingDate = this.siteData.openingDate;
-    this.editableSiteData.phoneNumber = this.siteData.phoneNumber;
-    this.editableSiteData.province = this.siteData.province;
-    this.editableSiteData.schedule = this.siteData.schedule;
+    this.editableSiteData.Gerente = this.siteData.Gerente;
+    this.editableSiteData.Fecha_Apertura = this.siteData.Fecha_Apertura;
+    this.editableSiteData.Telefonos = this.siteData.Telefonos;
+    this.editableSiteData.Provincia = this.siteData.Provincia;
+    this.editableSiteData.Horarios = this.siteData.Horarios;
   }
 
   saveChanges() {

@@ -13,19 +13,19 @@
     />
   </div>
 
-  <p>Nombre: {{ siteData.name }}</p>
-  <p>Cantón: {{ siteData.canton }}</p>
-  <p>Capacidad: {{ siteData.capacity }}</p>
-  <p>Distrito: {{ siteData.district }}</p>
-  <p>Manager ID: {{ siteData.managerID }}</p>
-  <p>Fecha de apertura: {{ siteData.openingDate }}</p>
+  <p>Nombre: {{ siteData.Nombre }}</p>
+  <p>Cantón: {{ siteData.Canton }}</p>
+  <p>Capacidad: {{ siteData.Capacidad_Max }}</p>
+  <p>Distrito: {{ siteData.Distrito }}</p>
+  <p>Manager ID: {{ siteData.Gerente }}</p>
+  <p>Fecha de apertura: {{ siteData.Fecha_Apertura }}</p>
   <p>Numeros de teléfono:</p>
-  <p *ngFor="let telefono of siteData.phoneNumber">{{ telefono.Telefono }}</p>
-  <p>Provincia: {{ siteData.province }}</p>
+  <p *ngFor="let telefono of siteData.Telefonos">{{ telefono.Telefono }}</p>
+  <p>Provincia: {{ siteData.Provincia }}</p>
   <p>
-    Horario: {{ siteData.schedule[0].Dia }}
-    {{ siteData.schedule[0].Hora_Apertura }}
-    {{ siteData.schedule[0].Hora_Cierre }}
+    Horario: {{ siteData.Horarios[0].Dia }}
+    {{ siteData.Horarios[0].Hora_Apertura }}
+    {{ siteData.Horarios[0].Hora_Cierre }}
   </p>
 
   <button type="button">Activación Spa</button>
@@ -52,7 +52,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableSiteData.name"
+      [(ngModel)]="editableSiteData.Nombre"
     />
   </div>
 
@@ -61,7 +61,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableSiteData.province"
+      [(ngModel)]="editableSiteData.Provincia"
     />
   </div>
 
@@ -70,7 +70,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableSiteData.canton"
+      [(ngModel)]="editableSiteData.Canton"
     />
   </div>
 
@@ -79,7 +79,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableSiteData.district"
+      [(ngModel)]="editableSiteData.Distrito"
     />
   </div>
 
@@ -88,7 +88,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableSiteData.capacity"
+      [(ngModel)]="editableSiteData.Capacidad_Max"
     />
   </div>
 
@@ -97,7 +97,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableSiteData.managerID"
+      [(ngModel)]="editableSiteData.Gerente"
     />
   </div>
 
@@ -106,43 +106,37 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableSiteData.openingDate"
+      [(ngModel)]="editableSiteData.Fecha_Apertura"
     />
   </div>
 
-  <div
-    class="line"
-    *ngFor="let telefono of siteData.phoneNumber; let i = index"
-  >
+  <div class="line" *ngFor="let telefono of siteData.Telefonos; let i = index">
     <h1 class="tag">Teléfono:</h1>
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableSiteData.phoneNumber[i].Telefono"
+      [(ngModel)]="editableSiteData.Telefonos[i].Telefono"
     />
   </div>
 
-  <div
-    class="line"
-    *ngFor="let telefono of siteData.phoneNumber; let i = index"
-  >
+  <div class="line" *ngFor="let telefono of siteData.Telefonos; let i = index">
     <h1 class="tag">Dia:</h1>
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableSiteData.schedule[i].Dia"
+      [(ngModel)]="editableSiteData.Horarios[i].Dia"
     />
     <h1 class="tag">Hora inicio:</h1>
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableSiteData.schedule[i].Hora_Apertura"
+      [(ngModel)]="editableSiteData.Horarios[i].Hora_Apertura"
     />
     <h1 class="tag">Hora Final:</h1>
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableSiteData.schedule[i].Hora_Cierre"
+      [(ngModel)]="editableSiteData.Horarios[i].Hora_Cierre"
     />
   </div>
 

@@ -15,12 +15,11 @@ export class InventoryComponent implements OnInit {
 
   equipmentOptions = [
     {
-      type: "multigimnasio",
-      name: "Max001",
-      brand: "CoolFitness",
-      serialNo: "12345",
-      price: 99999,
-      site: "Guácimo",
+      Tipo_Equipo: "multigimnasio",
+      Marca: "CoolFitness",
+      Serial: "12345",
+      Costo: 99999,
+      Sucursal: "Guácimo",
       imageURL: "https://i.ytimg.com/vi/AFaezGT6wH0/maxresdefault.jpg",
     },
   ];

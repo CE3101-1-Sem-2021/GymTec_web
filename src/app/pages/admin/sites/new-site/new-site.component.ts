@@ -35,27 +35,27 @@ export class NewSiteComponent implements OnInit {
   }
 
   addAddress() {
-    this.newPhoneNumber.Sucursal = this.newSite.name;
-    this.newSite.phoneNumber.push({
+    this.newPhoneNumber.Sucursal = this.newSite.Nombre;
+    this.newSite.Telefonos.push({
       Telefono: this.newPhoneNumber.Telefono,
       Sucursal: this.newPhoneNumber.Sucursal,
     });
     this.newPhoneNumber.Telefono = "";
     //this.newPhoneNumber.Telefono = "";
-    console.log(this.newSite.phoneNumber);
+    console.log(this.newSite.Telefonos);
   }
 
   removeAddress(address: any) {
     let phoneNumber = new SitePhoneNumber();
-    phoneNumber.Sucursal = this.newSite.name;
+    phoneNumber.Sucursal = this.newSite.Nombre;
     phoneNumber.Telefono = address;
-    let position = this.newSite.phoneNumber.indexOf(phoneNumber);
-    this.newSite.phoneNumber.splice(position, 1);
+    let position = this.newSite.Telefonos.indexOf(phoneNumber);
+    this.newSite.Telefonos.splice(position, 1);
   }
 
   addSchedule() {
-    this.newSchedule.Sucursal = this.newSite.name;
-    this.newSite.schedule.push({
+    this.newSchedule.Sucursal = this.newSite.Nombre;
+    this.newSite.Horarios.push({
       Dia: this.newSchedule.Dia,
       Sucursal: this.newSchedule.Sucursal,
       Hora_Apertura: this.newSchedule.Hora_Apertura,
@@ -69,11 +69,11 @@ export class NewSiteComponent implements OnInit {
 
   removeSchedule(address: SiteSchedule) {
     let schedule = new SiteSchedule();
-    schedule.Sucursal = this.newSite.name;
+    schedule.Sucursal = this.newSite.Nombre;
     schedule.Hora_Apertura = address.Hora_Apertura;
     schedule.Hora_Cierre = address.Hora_Cierre;
     schedule.Dia = address.Dia;
-    let position = this.newSite.schedule.indexOf(schedule);
-    this.newSite.schedule.splice(position, 1);
+    let position = this.newSite.Horarios.indexOf(schedule);
+    this.newSite.Horarios.splice(position, 1);
   }
 }

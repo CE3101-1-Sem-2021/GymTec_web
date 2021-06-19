@@ -23,11 +23,17 @@
         [(ngModel)]="password"
       />
 
-      <mat-radio-group aria-label="Select an option">
-        <mat-radio-button value="1"> Instructor </mat-radio-button>
-        <mat-radio-button value="2">Dependiente de Tienda </mat-radio-button>
-        <mat-radio-button value="3">Dependiente de Spa</mat-radio-button>
-      </mat-radio-group>
+      <mat-form-field appearance="fill">
+        <mat-label>Seleccione el rol</mat-label>
+        <mat-select [(value)]="selected">
+          <mat-option value="Administrador">Administrador</mat-option>
+          <mat-option value="Dependiente Spa">Dependiente de Spa</mat-option>
+          <mat-option value="Dependiente Tienda"
+            >Dependiente de Tienda</mat-option
+          >
+          <mat-option value="Instructor">Instructor</mat-option>
+        </mat-select>
+      </mat-form-field>
 
       <button
         *ngIf="view === 'Client'"

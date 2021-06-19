@@ -15,22 +15,26 @@
 
   <div class="line">
     <h1 class="tag">Nombre:</h1>
-    <input type="text" class="input clickable" [(ngModel)]="newSite.name" />
+    <input type="text" class="input clickable" [(ngModel)]="newSite.Nombre" />
   </div>
 
   <div class="line">
     <h1 class="tag">Provincia:</h1>
-    <input type="text" class="input clickable" [(ngModel)]="newSite.province" />
+    <input
+      type="text"
+      class="input clickable"
+      [(ngModel)]="newSite.Provincia"
+    />
   </div>
 
   <div class="line">
     <h1 class="tag">Cantón:</h1>
-    <input type="text" class="input clickable" [(ngModel)]="newSite.canton" />
+    <input type="text" class="input clickable" [(ngModel)]="newSite.Canton" />
   </div>
 
   <div class="line">
     <h1 class="tag">Distrito:</h1>
-    <input type="text" class="input clickable" [(ngModel)]="newSite.district" />
+    <input type="text" class="input clickable" [(ngModel)]="newSite.Distrito" />
   </div>
 
   <div class="line">
@@ -38,23 +42,19 @@
     <input
       type="number"
       class="input clickable"
-      [(ngModel)]="newSite.capacity"
+      [(ngModel)]="newSite.Capacidad_Max"
     />
   </div>
 
   <div class="line">
     <h1 class="tag">Manager ID:</h1>
-    <input
-      type="text"
-      class="input clickable"
-      [(ngModel)]="newSite.managerID"
-    />
+    <input type="text" class="input clickable" [(ngModel)]="newSite.Gerente" />
   </div>
 
   <div class="bottomContainer">
     <h2 class="tag">Número Teléfono:</h2>
 
-    <div class="addressBox" *ngFor="let address of this.newSite.phoneNumber">
+    <div class="addressBox" *ngFor="let address of this.newSite.Telefonos">
       <h2 class="address">{{ address.Telefono }}</h2>
       <img
         class="icon"
@@ -77,7 +77,7 @@
 
   <div class="bottomContainer">
     <h2 class="tag">Horario:</h2>
-    <div class="addressBox" *ngFor="let address of this.newSite.schedule">
+    <div class="addressBox" *ngFor="let address of this.newSite.Horarios">
       <h2 class="address">{{ address.Dia }}</h2>
       <h2 class="address">{{ address.Hora_Apertura }}</h2>
       <h2 class="address">{{ address.Hora_Cierre }}</h2>

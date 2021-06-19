@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from "@angular/router";
 
 import { AuthService } from "../../services/auth.service";
 import { AlertService } from "../../services/alert.service";
+import { AdminService } from "src/app/services/admin.service";
+import { FormControl, FormGroup } from "@angular/forms";
 
 @Component({
   selector: "app-login",
@@ -10,16 +12,17 @@ import { AlertService } from "../../services/alert.service";
   styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent implements OnInit {
-  // Control variables
+  // Control variabless
   view: any;
-  email: String = "";
-  password: String = "";
+  email: string = "";
+  password: string = "";
+  selected = "Administrador";
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private alertService: AlertService,
-    private authService: AuthService
+    private authService: AdminService
   ) {}
 
   ngOnInit(): void {
@@ -30,7 +33,23 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.view == "Admin") {
-      this.router.navigateByUrl("/pages/admin/home");
+      this.authService
+        .validateCredentials(this.email, this.password, this.selected)
+        .then((response) => {
+          console.log(response);
+          if (!response.ok) {
+            throw response.text();
+          }
+          return response.text();
+        })
+        .then((result) => {
+          console.log(result);
+          this.authService.token = result;
+          this.router.navigateByUrl("/pages/admin/home");
+        })
+        .catch(async (err) => {
+          console.log(err);
+        });
     } else if (this.view == "Client") {
       this.router.navigateByUrl("/pages/client/home");
     }

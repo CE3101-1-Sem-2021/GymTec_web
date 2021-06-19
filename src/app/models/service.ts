@@ -1,5 +1,5 @@
 export class Service {
-  name = "";
-  description = "";
+  Nombre = "";
+  Descripcion = "";
   imageURL = "";
 }

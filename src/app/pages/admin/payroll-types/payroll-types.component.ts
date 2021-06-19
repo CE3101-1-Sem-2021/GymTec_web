@@ -15,8 +15,8 @@ export class PayrollTypesComponent implements OnInit {
 
   payrollTypeOptions = [
     {
-      name: "Quincenal",
-      description: "Ci",
+      Nombre: "Quincenal",
+      Descripcion: "Ci",
       imageURL: "https://i.ytimg.com/vi/AFaezGT6wH0/maxresdefault.jpg",
     },
   ];

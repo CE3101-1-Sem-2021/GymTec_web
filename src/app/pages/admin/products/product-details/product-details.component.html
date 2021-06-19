@@ -13,10 +13,10 @@
     />
   </div>
 
-  <p>Nombre: {{ productData.name }}</p>
-  <p>Descripción: {{ productData.description }}</p>
-  <p>Precio: {{ productData.price }}</p>
-  <p>Código barras: {{ productData.barCode }}</p>
+  <p>Nombre: {{ productData.Nombre }}</p>
+  <p>Descripción: {{ productData.Descripcion }}</p>
+  <p>Precio: {{ productData.Costo }}</p>
+  <p>Código barras: {{ productData.Codigo_Barras }}</p>
 </mat-card>
 
 <mat-card class="mainCard" *ngIf="edit">
@@ -39,7 +39,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableProductData.name"
+      [(ngModel)]="editableProductData.Nombre"
     />
   </div>
 
@@ -48,7 +48,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableProductData.description"
+      [(ngModel)]="editableProductData.Descripcion"
     />
   </div>
 
@@ -57,7 +57,7 @@
     <input
       type="number"
       class="input clickable"
-      [(ngModel)]="editableProductData.price"
+      [(ngModel)]="editableProductData.Costo"
     />
   </div>
 
@@ -66,7 +66,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableProductData.barCode"
+      [(ngModel)]="editableProductData.Codigo_Barras"
     />
   </div>
 

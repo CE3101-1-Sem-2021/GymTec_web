@@ -13,8 +13,8 @@
     />
   </div>
 
-  <p>Nombre: {{ serviceData.name }}</p>
-  <p>Descripción: {{ serviceData.description }}</p>
+  <p>Nombre: {{ serviceData.Nombre }}</p>
+  <p>Descripción: {{ serviceData.Descripcion }}</p>
 </mat-card>
 
 <mat-card class="mainCard" *ngIf="edit">
@@ -37,7 +37,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableServiceData.name"
+      [(ngModel)]="editableServiceData.Nombre"
     />
   </div>
 
@@ -46,7 +46,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableServiceData.description"
+      [(ngModel)]="editableServiceData.Descripcion"
     />
   </div>
   <button class="deleteButton" (click)="delete()">

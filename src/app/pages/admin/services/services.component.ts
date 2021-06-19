@@ -15,8 +15,8 @@ export class ServicesComponent implements OnInit {
 
   serviceOptions = [
     {
-      name: "99999",
-      description: "Ci",
+      Nombre: "99999",
+      Descripcion: "Ci",
       imageURL: "https://i.ytimg.com/vi/AFaezGT6wH0/maxresdefault.jpg",
     },
   ];

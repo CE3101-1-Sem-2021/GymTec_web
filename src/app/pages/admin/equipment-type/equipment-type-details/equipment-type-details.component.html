@@ -13,8 +13,8 @@
     />
   </div>
 
-  <p>Nombre: {{ equipmentTypeData.name }}</p>
-  <p>Descripción: {{ equipmentTypeData.description }}</p>
+  <p>Nombre: {{ equipmentTypeData.Nombre }}</p>
+  <p>Descripción: {{ equipmentTypeData.Descripcion }}</p>
 </mat-card>
 
 <mat-card class="mainCard" *ngIf="edit">
@@ -37,7 +37,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableEquipmentTypeData.name"
+      [(ngModel)]="editableEquipmentTypeData.Nombre"
     />
   </div>
 
@@ -46,7 +46,7 @@
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableEquipmentTypeData.description"
+      [(ngModel)]="editableEquipmentTypeData.Descripcion"
     />
   </div>
   <button class="deleteButton" (click)="delete()">

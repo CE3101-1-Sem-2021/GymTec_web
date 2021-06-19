@@ -1,9 +1,8 @@
 export class Equipment {
-  type = "";
-  name = "";
-  brand = "";
-  serialNo = "";
-  price = 0;
-  site = "";
+  Tipo_Equipo = "";
+  Marca = "";
+  Serial = "";
+  Costo = 0;
+  Sucursal = "";
   imageURL = "";
 }

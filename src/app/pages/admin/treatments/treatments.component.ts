@@ -15,8 +15,8 @@ export class TreatmentsComponent implements OnInit {
 
   treatmentOptions = [
     {
-      name: "Masaje relajante",
-      ID: "12345",
+      Nombre: "Masaje relajante",
+      Id: "12345",
       imageURL: "https://i.ytimg.com/vi/AFaezGT6wH0/maxresdefault.jpg",
     },
   ];

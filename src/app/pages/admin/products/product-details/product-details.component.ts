@@ -16,11 +16,11 @@ export class ProductDetailsComponent implements OnInit {
   editableProductData = new Product();
 
   ngOnInit(): void {
-    this.editableProductData.name = this.productData.name;
-    this.editableProductData.barCode = this.productData.barCode;
-    this.editableProductData.description = this.productData.description;
+    this.editableProductData.Nombre = this.productData.Nombre;
+    this.editableProductData.Codigo_Barras = this.productData.Codigo_Barras;
+    this.editableProductData.Descripcion = this.productData.Descripcion;
     this.editableProductData.imageURL = this.productData.imageURL;
-    this.editableProductData.price = this.productData.price;
+    this.editableProductData.Costo = this.productData.Costo;
   }
 
   saveChanges() {

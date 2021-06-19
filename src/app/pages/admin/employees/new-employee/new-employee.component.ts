@@ -15,6 +15,7 @@ export class NewEmployeeComponent implements OnInit {
 
   ngOnInit(): void {}
   saveChanges() {
+    this.newEmployee.Contraseña = this.newEmployee.Contrasena;
     this.raiseEvent.emit({
       eventID: "addProduct",
       attached: this.newEmployee,

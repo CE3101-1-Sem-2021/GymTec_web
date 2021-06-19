@@ -1,5 +1,5 @@
 export class EquipmentType {
-  name = "";
-  description = "";
+  Nombre = "";
+  Descripcion = "";
   imageURL = "";
 }
