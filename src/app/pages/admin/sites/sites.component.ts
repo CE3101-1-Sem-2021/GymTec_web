@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { EventData } from "src/app/models/event-data";
 import { Site } from "src/app/models/site";
+import { AdminService } from "src/app/services/admin.service";
+import { AlertService } from "src/app/services/alert.service";
+import { SitesService } from "./sites.service";
 
 @Component({
   selector: "app-sites",
@@ -8,11 +11,18 @@ import { Site } from "src/app/models/site";
   styleUrls: ["./sites.component.scss"],
 })
 export class SitesComponent implements OnInit {
+  constructor(
+    public sitesService: SitesService,
+    public adminService: AdminService,
+    public alertService: AlertService
+  ) {}
+
   boolSmokeScreen = false;
   boolNewSite = false;
   boolSiteDetails = false;
   currentSite: Site = new Site();
 
+  currentSite2: Site = new Site();
   siteOptions = [
     {
       Nombre: "Guácimo",
@@ -54,12 +64,126 @@ export class SitesComponent implements OnInit {
         this.boolSmokeScreen = false;
         this.boolNewSite = false;
         this.boolSiteDetails = false;
+        this.currentSite2 = $event.attached;
+        this.sitesService
+          .postSite(
+            this.adminService.token,
+            this.currentSite2.Nombre,
+            this.currentSite2.Provincia,
+            this.currentSite2.Canton,
+            this.currentSite2.Distrito,
+            this.currentSite2.Fecha_Apertura,
+            this.currentSite2.Capacidad_Max,
+            this.currentSite2.Horarios,
+            this.currentSite2.Telefonos,
+            this.currentSite2.Spa_Act,
+            this.currentSite2.Tienda_Act
+          )
+          .then((response) => {
+            console.log(response);
+            if (!response.ok) {
+              throw response.text();
+            }
+            return response.text();
+          })
+          .then((result) => {
+            console.log(result);
+          })
+          .catch(async (err) => {
+            console.log(err);
+          });
+
         break;
       }
 
       case "saveChanges": {
         const index = this.siteOptions.indexOf(this.currentSite);
         this.siteOptions[index] = $event.attached;
+        this.currentSite2 = $event.attached;
+        this.sitesService
+          .updateSite(
+            this.adminService.token,
+            this.currentSite.Nombre,
+            this.currentSite2.Nombre,
+            this.currentSite2.Provincia,
+            this.currentSite2.Canton,
+            this.currentSite2.Distrito,
+            this.currentSite2.Fecha_Apertura,
+            this.currentSite2.Capacidad_Max,
+            this.currentSite2.Horarios,
+            this.currentSite2.Telefonos,
+            this.currentSite2.Spa_Act,
+            this.currentSite2.Tienda_Act
+          )
+          .then((response) => {
+            console.log(response);
+            if (!response.ok) {
+              throw response.text();
+            }
+            return response.text();
+          })
+          .then((result) => {
+            console.log(result);
+            this.alertService.alertSuccess(result);
+          })
+          .catch(async (err) => {
+            console.log(err);
+          });
+
+        break;
+      }
+
+      case "deleteProduct": {
+        this.boolSmokeScreen = true;
+        this.boolSiteDetails = true;
+        this.currentSite2 = $event.attached;
+        this.sitesService
+          .deleteSite(this.adminService.token, this.currentSite2.Nombre)
+          .then((response) => {
+            console.log(response);
+            if (!response.ok) {
+              throw response.text();
+            }
+            return response.text();
+          })
+          .then((result) => {
+            console.log(result);
+            this.alertService.alertSuccess(result);
+          })
+          .catch(async (err) => {
+            console.log(err);
+            this.alertService.alertError(err);
+          });
+
+        break;
+      }
+
+      case "showDetails": {
+        this.boolSmokeScreen = true;
+        this.boolSiteDetails = true;
+        this.currentSite = $event.attached;
+        break;
+      }
+
+      case "activateSpa": {
+        this.currentSite = $event.attached;
+        this.sitesService
+          .changeSpaState(this.adminService.token, this.currentSite.Nombre)
+          .then((response) => {
+            console.log(response);
+            if (!response.ok) {
+              throw response.text();
+            }
+            return response.text();
+          })
+          .then((result) => {
+            console.log(result);
+            this.alertService.alertSuccess(result);
+          })
+          .catch(async (err) => {
+            console.log(err);
+            this.alertService.alertError(err);
+          });
         break;
       }
 
@@ -70,15 +194,46 @@ export class SitesComponent implements OnInit {
         break;
       }
 
-      case "showDetails": {
-        this.boolSmokeScreen = true;
-        this.boolSiteDetails = true;
+      case "activateStore": {
         this.currentSite = $event.attached;
+        this.sitesService
+          .changeStoreState(this.adminService.token, this.currentSite.Nombre)
+          .then((response) => {
+            console.log(response);
+            if (!response.ok) {
+              throw response.text();
+            }
+            return response.text();
+          })
+          .then((result) => {
+            console.log(result);
+            this.alertService.alertSuccess(result);
+          })
+          .catch(async (err) => {
+            console.log(err);
+            this.alertService.alertError(err);
+          });
+        break;
       }
     }
   }
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.sitesService
+      .getSites(this.adminService.token)
+      .then((response) => {
+        //console.log(response.text());
+        if (!response.ok) {
+          throw new Error(response.toString());
+        }
+        return response.text();
+      })
+      .then((result) => {
+        this.siteOptions = JSON.parse(result) as [Site];
+        console.log(result);
+      })
+      .catch(async (err) => {
+        console.log(err);
+      });
+  }
 }

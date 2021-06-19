@@ -59,6 +59,7 @@ export class PositionsComponent implements OnInit {
           })
           .then((result) => {
             console.log(result);
+            this.alertService.alertSuccess(result);
           })
           .catch(async (err) => {
             console.log(err);
@@ -87,6 +88,7 @@ export class PositionsComponent implements OnInit {
           })
           .then((result) => {
             console.log(result);
+            this.alertService.alertSuccess(result);
           })
           .catch(async (err) => {
             console.log(err);
@@ -110,7 +112,7 @@ export class PositionsComponent implements OnInit {
           })
           .then((result) => {
             console.log(result);
-            this.alertService.alertSuccess("Puesto eliminado exitosamente");
+            this.alertService.alertSuccess(result);
           })
           .catch(async (err) => {
             console.log(err);

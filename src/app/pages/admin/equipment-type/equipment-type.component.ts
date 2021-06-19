@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { EquipmentType } from "src/app/models/equipment-type";
 import { EventData } from "src/app/models/event-data";
+import { AdminService } from "src/app/services/admin.service";
+import { AlertService } from "src/app/services/alert.service";
+import { EquipmentTypeService } from "./equipment-type.service";
 
 @Component({
   selector: "app-equipment-type",
@@ -12,6 +15,7 @@ export class EquipmentTypeComponent implements OnInit {
   boolNewEquipmentType = false;
   boolEquipmentDetails = false;
   currentEquipmentType: EquipmentType = new EquipmentType();
+  currentEquipmentType2: EquipmentType = new EquipmentType();
 
   equipmentTypeOptions = [
     {
@@ -33,6 +37,28 @@ export class EquipmentTypeComponent implements OnInit {
         this.boolSmokeScreen = false;
         this.boolNewEquipmentType = false;
         this.boolEquipmentDetails = false;
+        this.currentEquipmentType2 = $event.attached;
+        this.equipmentTypeService
+          .postEquipmentType(
+            this.adminService.token,
+            this.currentEquipmentType2.Nombre,
+            this.currentEquipmentType2.Descripcion
+          )
+          .then((response) => {
+            console.log(response);
+            if (!response.ok) {
+              throw response.text();
+            }
+            return response.text();
+          })
+          .then((result) => {
+            console.log(result);
+            this.alertService.alertSuccess(result);
+          })
+          .catch(async (err) => {
+            console.log(err);
+          });
+
         break;
       }
 
@@ -41,6 +67,57 @@ export class EquipmentTypeComponent implements OnInit {
           this.currentEquipmentType
         );
         this.equipmentTypeOptions[index] = $event.attached;
+        this.currentEquipmentType2 = $event.attached;
+        this.equipmentTypeService
+          .updateEquipmentType(
+            this.adminService.token,
+            this.currentEquipmentType.Nombre,
+            this.currentEquipmentType2.Nombre,
+            this.currentEquipmentType2.Descripcion
+          )
+          .then((response) => {
+            console.log(response);
+            if (!response.ok) {
+              throw response.text();
+            }
+            return response.text();
+          })
+          .then((result) => {
+            console.log(result);
+            this.alertService.alertSuccess(result);
+          })
+          .catch(async (err) => {
+            console.log(err);
+          });
+
+        break;
+      }
+
+      case "deleteProduct": {
+        this.boolSmokeScreen = true;
+        this.boolEquipmentDetails = true;
+        this.currentEquipmentType2 = $event.attached;
+        this.equipmentTypeService
+          .deleteEquipmentType(
+            this.adminService.token,
+            this.currentEquipmentType2.Nombre
+          )
+          .then((response) => {
+            console.log(response);
+            if (!response.ok) {
+              throw response.text();
+            }
+            return response.text();
+          })
+          .then((result) => {
+            console.log(result);
+            this.alertService.alertSuccess(result);
+          })
+          .catch(async (err) => {
+            console.log(err);
+            this.alertService.alertError(err);
+          });
+
         break;
       }
 
@@ -59,7 +136,28 @@ export class EquipmentTypeComponent implements OnInit {
     }
   }
 
-  constructor() {}
+  constructor(
+    public equipmentTypeService: EquipmentTypeService,
+    public adminService: AdminService,
+    public alertService: AlertService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.equipmentTypeService
+      .getEquipmentTypes(this.adminService.token)
+      .then((response) => {
+        //console.log(response.text());
+        if (!response.ok) {
+          throw new Error(response.toString());
+        }
+        return response.text();
+      })
+      .then((result) => {
+        this.equipmentTypeOptions = JSON.parse(result) as [EquipmentType];
+        console.log(result);
+      })
+      .catch(async (err) => {
+        console.log(err);
+      });
+  }
 }

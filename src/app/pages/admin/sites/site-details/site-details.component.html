@@ -22,14 +22,15 @@
   <p>Numeros de teléfono:</p>
   <p *ngFor="let telefono of siteData.Telefonos">{{ telefono.Telefono }}</p>
   <p>Provincia: {{ siteData.Provincia }}</p>
-  <p>
-    Horario: {{ siteData.Horarios[0].Dia }}
-    {{ siteData.Horarios[0].Hora_Apertura }}
-    {{ siteData.Horarios[0].Hora_Cierre }}
+  <p>Horarios:</p>
+  <p *ngFor="let horario of siteData.Horarios">
+    {{ horario.Dia }}
+    {{ horario.Hora_Apertura }}
+    {{ horario.Hora_Cierre }}
   </p>
 
-  <button type="button">Activación Spa</button>
-  <button type="button">Activación Tienda</button>
+  <button type="button" (click)="activateSpa()">Activación Spa</button>
+  <button type="button" (click)="activateStore()">Activación Tienda</button>
 </mat-card>
 
 <mat-card class="mainCard" *ngIf="edit">
@@ -119,7 +120,7 @@
     />
   </div>
 
-  <div class="line" *ngFor="let telefono of siteData.Telefonos; let i = index">
+  <div class="line" *ngFor="let horario of siteData.Horarios; let i = index">
     <h1 class="tag">Dia:</h1>
     <input
       type="text"

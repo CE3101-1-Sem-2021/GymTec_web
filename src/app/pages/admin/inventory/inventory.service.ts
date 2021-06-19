@@ -50,6 +50,7 @@ export class InventoryService {
 
   async updateMachine(
     token: string,
+    serialAnterior: string,
     marca: string,
     tipoEquipo: string,
     costo: number,
@@ -58,7 +59,7 @@ export class InventoryService {
   ) {
     return fetch(
       "https://gymtecrelational.conveyor.cloud/api/Maquina/updateMachine/" +
-        serial +
+        serialAnterior +
         "/" +
         token,
       {

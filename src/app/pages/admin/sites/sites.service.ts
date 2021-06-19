@@ -60,9 +60,11 @@ export class SitesService {
     canton: string,
     distrito: string,
     fechaApertura: string,
-    capacidadMax: string,
+    capacidadMax: number,
     horarios: SiteSchedule[],
-    telefonos: SitePhoneNumber[]
+    telefonos: SitePhoneNumber[],
+    spaAct: boolean,
+    storeAct: boolean
   ) {
     return fetch(
       "https://gymtecrelational.conveyor.cloud/api/Gym/createGym/" + token,
@@ -78,6 +80,8 @@ export class SitesService {
           Capacidad_Max: capacidadMax,
           Horarios: horarios,
           Telefonos: telefonos,
+          Tienda_Act: storeAct,
+          Spa_Act: spaAct,
         }),
         redirect: "follow",
         mode: "cors",
@@ -93,9 +97,11 @@ export class SitesService {
     canton: string,
     distrito: string,
     fechaApertura: string,
-    capacidadMax: string,
+    capacidadMax: number,
     horarios: SiteSchedule[],
-    telefonos: SitePhoneNumber[]
+    telefonos: SitePhoneNumber[],
+    spaAct: boolean,
+    storeAct: boolean
   ) {
     return fetch(
       "https://gymtecrelational.conveyor.cloud/api/Gym/updateGym/" +
@@ -114,6 +120,8 @@ export class SitesService {
           Capacidad_Max: capacidadMax,
           Horarios: horarios,
           Telefonos: telefonos,
+          Tienda_Act: storeAct,
+          Spa_Act: spaAct,
         }),
         redirect: "follow",
         mode: "cors",

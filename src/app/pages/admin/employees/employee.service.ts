@@ -67,6 +67,7 @@ export class EmployeeService {
     token: string,
     nombre: string,
     apellidos: string,
+    cedulaAnterior: string,
     cedula: string,
     provincia: string,
     canton: string,
@@ -80,7 +81,7 @@ export class EmployeeService {
   ) {
     return fetch(
       "https://gymtecrelational.conveyor.cloud/api/Employee/updateEmployee/" +
-        cedula +
+        cedulaAnterior +
         "/" +
         token,
       {

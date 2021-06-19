@@ -39,6 +39,22 @@ export class SiteDetailsComponent implements OnInit {
     });
   }
 
+  activateSpa() {
+    this.siteData = this.editableSiteData;
+    this.raiseEvent.emit({
+      eventID: "activateSpa",
+      attached: this.siteData,
+    });
+  }
+
+  activateStore() {
+    this.siteData = this.editableSiteData;
+    this.raiseEvent.emit({
+      eventID: "activateStore",
+      attached: this.siteData,
+    });
+  }
+
   editProduct() {
     this.edit = true;
   }

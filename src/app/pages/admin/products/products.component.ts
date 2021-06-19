@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { EventData } from "src/app/models/event-data";
 import { Product } from "src/app/models/product";
+import { AdminService } from "src/app/services/admin.service";
+import { AlertService } from "src/app/services/alert.service";
+import { ProductsService } from "./products.service";
 
 @Component({
   selector: "app-products",
@@ -12,6 +15,7 @@ export class ProductsComponent implements OnInit {
   boolNewProduct = false;
   boolProductDetails = false;
   currentProduct: Product = new Product();
+  currentProduct2: Product = new Product();
 
   productOptions = [
     {
@@ -35,12 +39,89 @@ export class ProductsComponent implements OnInit {
         this.boolSmokeScreen = false;
         this.boolNewProduct = false;
         this.boolProductDetails = false;
+        this.currentProduct2 = $event.attached;
+        this.productsService
+          .postProducto(
+            this.adminService.token,
+            this.currentProduct2.Nombre,
+            this.currentProduct2.Descripcion,
+            this.currentProduct2.Codigo_Barras,
+            this.currentProduct2.Costo
+          )
+          .then((response) => {
+            console.log(response);
+            if (!response.ok) {
+              throw response.text();
+            }
+            return response.text();
+          })
+          .then((result) => {
+            console.log(result);
+            this.alertService.alertSuccess(result);
+          })
+          .catch(async (err) => {
+            console.log(err);
+          });
+
         break;
       }
 
       case "saveChanges": {
         const index = this.productOptions.indexOf(this.currentProduct);
         this.productOptions[index] = $event.attached;
+        this.currentProduct2 = $event.attached;
+        this.productsService
+          .updateProducto(
+            this.adminService.token,
+            this.currentProduct.Codigo_Barras,
+            this.currentProduct2.Nombre,
+            this.currentProduct2.Descripcion,
+            this.currentProduct2.Codigo_Barras,
+            this.currentProduct2.Costo
+          )
+          .then((response) => {
+            console.log(response);
+            if (!response.ok) {
+              throw response.text();
+            }
+            return response.text();
+          })
+          .then((result) => {
+            console.log(result);
+            this.alertService.alertSuccess(result);
+          })
+          .catch(async (err) => {
+            console.log(err);
+          });
+
+        break;
+      }
+
+      case "deleteProduct": {
+        this.boolSmokeScreen = true;
+        this.boolProductDetails = true;
+        this.currentProduct2 = $event.attached;
+        this.productsService
+          .deleteProducto(
+            this.adminService.token,
+            this.currentProduct2.Codigo_Barras
+          )
+          .then((response) => {
+            console.log(response);
+            if (!response.ok) {
+              throw response.text();
+            }
+            return response.text();
+          })
+          .then((result) => {
+            console.log(result);
+            this.alertService.alertSuccess(result);
+          })
+          .catch(async (err) => {
+            console.log(err);
+            this.alertService.alertError(err);
+          });
+
         break;
       }
 
@@ -59,7 +140,28 @@ export class ProductsComponent implements OnInit {
     }
   }
 
-  constructor() {}
+  constructor(
+    public productsService: ProductsService,
+    public adminService: AdminService,
+    public alertService: AlertService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.productsService
+      .getProducts(this.adminService.token)
+      .then((response) => {
+        //console.log(response.text());
+        if (!response.ok) {
+          throw new Error(response.toString());
+        }
+        return response.text();
+      })
+      .then((result) => {
+        this.productOptions = JSON.parse(result) as [Product];
+        console.log(result);
+      })
+      .catch(async (err) => {
+        console.log(err);
+      });
+  }
 }

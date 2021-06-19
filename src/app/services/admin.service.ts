@@ -17,16 +17,19 @@ export class AdminService {
     puesto: string
   ) {
     this.email = usernameFld;
-    return fetch("https://gymtecrelational.conveyor.cloud/api/Employee/login", {
-      method: "POST",
-      headers: myHeaders,
-      body: JSON.stringify({
-        Email: usernameFld, //'dcamachog99@gmail.com',
-        Contraseña: passwordFld,
-        Puesto: "Administrador",
-      }),
-      redirect: "follow",
-      mode: "cors",
-    });
+    return fetch(
+      "https://gymtecrelational.conveyor.cloud/api/Employee/loginRequest",
+      {
+        method: "POST",
+        headers: myHeaders,
+        body: JSON.stringify({
+          Email: usernameFld, //'dcamachog99@gmail.com',
+          Contraseña: passwordFld,
+          Puesto: "Administrador",
+        }),
+        redirect: "follow",
+        mode: "cors",
+      }
+    );
   }
 }
