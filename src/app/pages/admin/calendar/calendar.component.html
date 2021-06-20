@@ -1,6 +1,50 @@
+<div class="header">
+    <!--<div class="arrowContainer">
+        <button class="button" (click)="prevWeek()" >
+            <img src="../../../../assets/icons/backArrow.svg">
+        </button>
+        <button class="button" (click)="nextWeek()">
+            <img src="../../../../assets/icons/forwardArrow.svg">
+        </button>
+    </div>-->
+    <div class="arrowContainer">
+        <div
+            class="btn btn-primary"
+            mwlCalendarPreviousView
+            [view]="view"
+            [(viewDate)]="viewDate"
+            (viewDateChange)="closeOpenMonthViewDay()"
+        >
+            <img class="button" src="../../../../assets/icons/backArrow.svg">
+        </div>
+        <div
+            class="btn btn-outline-secondary"
+            mwlCalendarToday
+            [(viewDate)]="viewDate"
+        >
+            <h1 class="button" style="margin-top: 10px;">Today</h1>
+        </div>
+        <div
+            class="btn btn-primary"
+            mwlCalendarNextView
+            [view]="view"
+            [(viewDate)]="viewDate"
+            (viewDateChange)="closeOpenMonthViewDay()"
+          >
+          <img class="button" src="../../../../assets/icons/forwardArrow.svg">
+          </div>
+    </div>
+    <h1 style="margin-top: 5px;" >{{monthYear}}</h1>
+    <button class="button" style="margin-left: 30px; background-color: dodgerblue;">
+        <img src="../../../../assets/icons/copy.svg">
+    </button>
+</div>
 <mwl-calendar-week-view
   [viewDate]="viewDate"
+  [refresh]="refresh"
   [events]="events"
+  [dayStartHour]=5
+  [dayEndHour]=22
 >
 </mwl-calendar-week-view>
 
