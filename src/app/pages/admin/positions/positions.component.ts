@@ -23,13 +23,7 @@ export class PositionsComponent implements OnInit {
   currentPosition: Position = new Position();
 
   currentPosition2: Position = new Position();
-  positionOptions = [
-    {
-      Nombre: "Jefe",
-      Descripcion: "Ci",
-      imageURL: "https://i.ytimg.com/vi/AFaezGT6wH0/maxresdefault.jpg",
-    },
-  ];
+  positionOptions: Position[] = [];
 
   addEquipment() {
     this.boolSmokeScreen = true;
@@ -91,8 +85,6 @@ export class PositionsComponent implements OnInit {
       }
 
       case "saveChanges": {
-        const index = this.positionOptions.indexOf(this.currentPosition);
-        this.positionOptions[index] = $event.attached;
         this.currentPosition2 = $event.attached;
         this.positionsService
           .updatePuesto(
@@ -111,6 +103,25 @@ export class PositionsComponent implements OnInit {
           .then((result) => {
             console.log(result);
             this.alertService.alertSuccess(result);
+            this.positionsService
+              .getPuestos(this.adminService.token)
+              .then((response) => {
+                //console.log(response.text());
+                if (!response.ok) {
+                  throw new Error(response.toString());
+                }
+                return response.text();
+              })
+              .then((result) => {
+                this.positionOptions = JSON.parse(result) as [Position];
+                console.log(result);
+              })
+              .catch(async (err) => {
+                err.then((result: any) => {
+                  console.log(result);
+                  this.alertService.alertError(result);
+                });
+              });
           })
           .catch(async (err) => {
             err.then((result: any) => {

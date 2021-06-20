@@ -17,13 +17,7 @@ export class EquipmentTypeComponent implements OnInit {
   currentEquipmentType: EquipmentType = new EquipmentType();
   currentEquipmentType2: EquipmentType = new EquipmentType();
 
-  equipmentTypeOptions = [
-    {
-      Nombre: "multigimnasio",
-      Descripcion: "ci",
-      imageURL: "https://i.ytimg.com/vi/AFaezGT6wH0/maxresdefault.jpg",
-    },
-  ];
+  equipmentTypeOptions: EquipmentType[] = [];
 
   addEquipment() {
     this.boolSmokeScreen = true;
@@ -87,10 +81,6 @@ export class EquipmentTypeComponent implements OnInit {
       }
 
       case "saveChanges": {
-        const index = this.equipmentTypeOptions.indexOf(
-          this.currentEquipmentType
-        );
-        this.equipmentTypeOptions[index] = $event.attached;
         this.currentEquipmentType2 = $event.attached;
         this.equipmentTypeService
           .updateEquipmentType(
@@ -109,6 +99,27 @@ export class EquipmentTypeComponent implements OnInit {
           .then((result) => {
             console.log(result);
             this.alertService.alertSuccess(result);
+            this.equipmentTypeService
+              .getEquipmentTypes(this.adminService.token)
+              .then((response) => {
+                //console.log(response.text());
+                if (!response.ok) {
+                  throw new Error(response.toString());
+                }
+                return response.text();
+              })
+              .then((result) => {
+                this.equipmentTypeOptions = JSON.parse(result) as [
+                  EquipmentType
+                ];
+                console.log(result);
+              })
+              .catch(async (err) => {
+                err.then((result: any) => {
+                  console.log(result);
+                  this.alertService.alertError(result);
+                });
+              });
           })
           .catch(async (err) => {
             err.then((result: any) => {

@@ -16,13 +16,7 @@ export class TreatmentsComponent implements OnInit {
   boolTreatmentDetails = false;
   currentTreatment: Treatment = new Treatment();
 
-  treatmentOptions = [
-    {
-      Nombre: "Masaje relajante",
-      Id: "12345",
-      imageURL: "https://i.ytimg.com/vi/AFaezGT6wH0/maxresdefault.jpg",
-    },
-  ];
+  treatmentOptions: Treatment[] = [];
 
   currentTreatment2: Treatment = new Treatment();
 
@@ -81,8 +75,6 @@ export class TreatmentsComponent implements OnInit {
       }
 
       case "saveChanges": {
-        const index = this.treatmentOptions.indexOf(this.currentTreatment);
-        this.treatmentOptions[index] = $event.attached;
         this.currentTreatment2 = $event.attached;
         this.treatmentService
           .updateTreatment(
@@ -100,6 +92,25 @@ export class TreatmentsComponent implements OnInit {
           .then((result) => {
             console.log(result);
             this.alertService.alertSuccess(result);
+            this.treatmentService
+              .getTreatment(this.adminService.token)
+              .then((response) => {
+                //console.log(response.text());
+                if (!response.ok) {
+                  throw new Error(response.toString());
+                }
+                return response.text();
+              })
+              .then((result) => {
+                this.treatmentOptions = JSON.parse(result) as [Treatment];
+                console.log(result);
+              })
+              .catch(async (err) => {
+                err.then((result: any) => {
+                  console.log(result);
+                  this.alertService.alertError(result);
+                });
+              });
           })
           .catch(async (err) => {
             err.then((result: any) => {
