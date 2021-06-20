@@ -48,6 +48,8 @@ import { ProductComponent } from './products/product/product.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { NewProductComponent } from './products/new-product/new-product.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 @NgModule({
   declarations: [
