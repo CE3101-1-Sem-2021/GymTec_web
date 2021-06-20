@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ManagementComponent } from './management/management.component';
@@ -14,6 +15,11 @@ import { EquipmentComponent } from './equipment/equipment.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { ProductsComponent } from './products/products.component';
 import { PayrollTypesComponent } from './payroll-types/payroll-types.component';
+import { LinkTreatmentsComponent } from './dashboard/link-treatments/link-treatments.component';
+import { LinkProductsComponent } from './dashboard/link-products/link-products.component';
+import { LinkInventoryComponent } from './dashboard/link-inventory/link-inventory.component';
+import { CreateClassComponent } from './dashboard/create-class/create-class.component';
+
 
 
 @NgModule({
@@ -29,12 +35,17 @@ import { PayrollTypesComponent } from './payroll-types/payroll-types.component';
     EquipmentComponent,
     InventoryComponent,
     ProductsComponent,
-    PayrollTypesComponent
+    PayrollTypesComponent,
+    LinkTreatmentsComponent,
+    LinkProductsComponent,
+    LinkInventoryComponent,
+    CreateClassComponent
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    SharedModule
   ]
 })
-export class AdminModule { }
 
+export class AdminModule { }

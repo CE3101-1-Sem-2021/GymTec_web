@@ -14,6 +14,7 @@ import { DropDownComponent } from './drop-down/drop-down.component';
 import { HeaderComponent } from './header/header.component';
 import { InfoCardComponent } from './info-card/info-card.component';
 import { EditCardComponent } from './edit-card/edit-card.component';
+import { SelectComponent } from './select/select.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { EditCardComponent } from './edit-card/edit-card.component';
     DropDownComponent,
     HeaderComponent,
     InfoCardComponent,
-    EditCardComponent
+    EditCardComponent,
+    SelectComponent,
   ],
   imports: [
     CommonModule,
@@ -51,7 +53,8 @@ import { EditCardComponent } from './edit-card/edit-card.component';
     MatSelectModule,
     SideMenuComponent,
     HeaderComponent,
-    DropDownComponent
+    DropDownComponent,
+    SelectComponent
   ]
 })
 export class SharedModule { }

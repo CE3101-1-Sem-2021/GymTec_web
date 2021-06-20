@@ -1,0 +1,25 @@
+<mat-card class="mainCard">
+    <div class="header">
+        <img class="icon" src="../../../../assets/icons/return.svg" (click)="return()">
+        <gt-drop-down
+            style="margin-left: 24%;"
+            [title]="'Sucursal'"
+            [elemList]="branchNames"
+            (raiseEvent)="clickEvent($event)">
+        </gt-drop-down>
+    </div>
+    <div *ngIf="boolSelectedBranch" class="body">
+        <div class="column">
+            <h2>Tratamientos sin asociar</h2>
+            <div *ngFor="let element of notLinkedValues" class="selectableItem" (click)="linkTreatment(element.name)">
+                {{element.name}}
+            </div>
+        </div>
+        <div class="column">
+            <h2>Tratamientos asociados</h2>
+            <div *ngFor="let element of selectedBranch.spaTreatments" class="selectableItem" (click)="deleteTreatment(element.name)">
+                {{element.name}}
+            </div>
+        </div>
+    </div>
+</mat-card>
