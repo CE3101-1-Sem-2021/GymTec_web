@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Class } from 'src/app/models/class';
+import { Class } from 'src/app/models/calendar/class';
 import { EventData } from 'src/app/models/event-data';
 
 @Component({

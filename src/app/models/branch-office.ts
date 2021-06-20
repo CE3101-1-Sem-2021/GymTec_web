@@ -3,7 +3,7 @@ import { Employee } from './employee';
 import { Service } from './service';
 import { Product } from './product';
 import { Equipment } from './equipment';
-import { Class } from './class';
+import { Class } from './calendar/class';
 
 export class BranchOffice {
     name = '';

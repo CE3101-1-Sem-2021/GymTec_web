@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { BranchOffice } from '../models/branch-office';
-import { Class } from '../models/class';
+import { Class } from '../models/calendar/class';
 import { Equipment } from '../models/equipment';
 import { EquipmentType } from '../models/equipment-type';
 import { Product } from '../models/product';

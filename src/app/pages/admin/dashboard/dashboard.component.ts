@@ -4,7 +4,7 @@ import { BranchOfficeService } from 'src/app/services/branch-office.service';
 import { ClassService } from 'src/app/services/class.service';
 
 import { BranchOffice } from 'src/app/models/branch-office';
-import { Class } from 'src/app/models/class';
+import { Class } from 'src/app/models/calendar/class';
 import { Equipment } from 'src/app/models/equipment';
 import { EventData } from 'src/app/models/event-data';
 import { Product } from 'src/app/models/product';

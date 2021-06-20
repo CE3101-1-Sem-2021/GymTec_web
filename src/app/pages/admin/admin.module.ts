@@ -47,6 +47,7 @@ import { NewServiceComponent } from './services/new-service/new-service.componen
 import { ProductComponent } from './products/product/product.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { NewProductComponent } from './products/new-product/new-product.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +94,8 @@ import { NewProductComponent } from './products/new-product/new-product.componen
     LinkProductsComponent,
     LinkInventoryComponent,
     CreateClassComponent,
-    EquipmentComponent
+    EquipmentComponent,
+    CalendarComponent
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
 })
