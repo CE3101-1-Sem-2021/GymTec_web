@@ -16,16 +16,7 @@ export class InventoryComponent implements OnInit {
   boolEquipmentDetails = false;
   currentEquipment: Equipment = new Equipment();
   currentEquipment2: Equipment = new Equipment();
-  equipmentOptions = [
-    {
-      Tipo_Equipo: "multigimnasio",
-      Marca: "CoolFitness",
-      Serial: "12345",
-      Costo: 99999,
-      Sucursal: "Guácimo",
-      imageURL: "https://i.ytimg.com/vi/AFaezGT6wH0/maxresdefault.jpg",
-    },
-  ];
+  equipmentOptions: Equipment[] = [];
 
   addEquipment() {
     this.boolSmokeScreen = true;
@@ -90,8 +81,6 @@ export class InventoryComponent implements OnInit {
       }
 
       case "saveChanges": {
-        const index = this.equipmentOptions.indexOf(this.currentEquipment);
-        this.equipmentOptions[index] = $event.attached;
         this.currentEquipment2 = $event.attached;
         this.inventoryService
           .updateMachine(
@@ -113,6 +102,25 @@ export class InventoryComponent implements OnInit {
           .then((result) => {
             console.log(result);
             this.alertService.alertSuccess(result);
+            this.inventoryService
+              .getMachines(this.adminService.token)
+              .then((response) => {
+                //console.log(response.text());
+                if (!response.ok) {
+                  throw new Error(response.toString());
+                }
+                return response.text();
+              })
+              .then((result) => {
+                this.equipmentOptions = JSON.parse(result) as [Equipment];
+                console.log(result);
+              })
+              .catch(async (err) => {
+                err.then((result: any) => {
+                  console.log(result);
+                  this.alertService.alertError(result);
+                });
+              });
           })
           .catch(async (err) => {
             err.then((result: any) => {

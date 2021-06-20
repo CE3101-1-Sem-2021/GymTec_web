@@ -17,15 +17,7 @@ export class ProductsComponent implements OnInit {
   currentProduct: Product = new Product();
   currentProduct2: Product = new Product();
 
-  productOptions = [
-    {
-      Nombre: "Pesa",
-      Codigo_Barras: "10929300",
-      Descripcion: "Ci",
-      Costo: 0,
-      imageURL: "https://i.ytimg.com/vi/AFaezGT6wH0/maxresdefault.jpg",
-    },
-  ];
+  productOptions: Product[] = [];
 
   addEquipment() {
     this.boolSmokeScreen = true;
@@ -89,8 +81,6 @@ export class ProductsComponent implements OnInit {
       }
 
       case "saveChanges": {
-        const index = this.productOptions.indexOf(this.currentProduct);
-        this.productOptions[index] = $event.attached;
         this.currentProduct2 = $event.attached;
         this.productsService
           .updateProducto(
@@ -111,6 +101,25 @@ export class ProductsComponent implements OnInit {
           .then((result) => {
             console.log(result);
             this.alertService.alertSuccess(result);
+            this.productsService
+              .getProducts(this.adminService.token)
+              .then((response) => {
+                //console.log(response.text());
+                if (!response.ok) {
+                  throw new Error(response.toString());
+                }
+                return response.text();
+              })
+              .then((result) => {
+                this.productOptions = JSON.parse(result) as [Product];
+                console.log(result);
+              })
+              .catch(async (err) => {
+                err.then((result: any) => {
+                  console.log(result);
+                  this.alertService.alertError(result);
+                });
+              });
           })
           .catch(async (err) => {
             err.then((result: any) => {
