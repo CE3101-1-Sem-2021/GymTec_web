@@ -17,13 +17,7 @@ export class ServicesComponent implements OnInit {
   currentService: Service = new Service();
   currentService2: Service = new Service();
 
-  serviceOptions = [
-    {
-      Nombre: "99999",
-      Descripcion: "Ci",
-      imageURL: "https://i.ytimg.com/vi/AFaezGT6wH0/maxresdefault.jpg",
-    },
-  ];
+  serviceOptions: Service[] = [];
 
   addEquipment() {
     this.boolSmokeScreen = true;
@@ -54,17 +48,37 @@ export class ServicesComponent implements OnInit {
           .then((result) => {
             console.log(result);
             this.alertService.alertSuccess(result);
+            this.serviceService
+              .getServices(this.adminService.token)
+              .then((response) => {
+                //console.log(response.text());
+                if (!response.ok) {
+                  throw new Error(response.toString());
+                }
+                return response.text();
+              })
+              .then((result) => {
+                this.serviceOptions = JSON.parse(result) as [Service];
+                console.log(result);
+              })
+              .catch(async (err) => {
+                err.then((result: any) => {
+                  console.log(result);
+                  this.alertService.alertError(result);
+                });
+              });
           })
           .catch(async (err) => {
-            console.log(err);
+            err.then((result: any) => {
+              console.log(result);
+              this.alertService.alertError(result);
+            });
           });
 
         break;
       }
 
       case "saveChanges": {
-        const index = this.serviceOptions.indexOf(this.currentService);
-        this.serviceOptions[index] = $event.attached;
         this.currentService2 = $event.attached;
         this.serviceService
           .updateService(
@@ -83,9 +97,31 @@ export class ServicesComponent implements OnInit {
           .then((result) => {
             console.log(result);
             this.alertService.alertSuccess(result);
+            this.serviceService
+              .getServices(this.adminService.token)
+              .then((response) => {
+                //console.log(response.text());
+                if (!response.ok) {
+                  throw new Error(response.toString());
+                }
+                return response.text();
+              })
+              .then((result) => {
+                this.serviceOptions = JSON.parse(result) as [Service];
+                console.log(result);
+              })
+              .catch(async (err) => {
+                err.then((result: any) => {
+                  console.log(result);
+                  this.alertService.alertError(result);
+                });
+              });
           })
           .catch(async (err) => {
-            console.log(err);
+            err.then((result: any) => {
+              console.log(result);
+              this.alertService.alertError(result);
+            });
           });
 
         break;
@@ -107,10 +143,31 @@ export class ServicesComponent implements OnInit {
           .then((result) => {
             console.log(result);
             this.alertService.alertSuccess(result);
+            this.serviceService
+              .getServices(this.adminService.token)
+              .then((response) => {
+                //console.log(response.text());
+                if (!response.ok) {
+                  throw new Error(response.toString());
+                }
+                return response.text();
+              })
+              .then((result) => {
+                this.serviceOptions = JSON.parse(result) as [Service];
+                console.log(result);
+              })
+              .catch(async (err) => {
+                err.then((result: any) => {
+                  console.log(result);
+                  this.alertService.alertError(result);
+                });
+              });
           })
           .catch(async (err) => {
-            console.log(err);
-            this.alertService.alertError(err);
+            err.then((result: any) => {
+              console.log(result);
+              this.alertService.alertError(result);
+            });
           });
 
         break;
@@ -152,7 +209,10 @@ export class ServicesComponent implements OnInit {
         console.log(result);
       })
       .catch(async (err) => {
-        console.log(err);
+        err.then((result: any) => {
+          console.log(result);
+          this.alertService.alertError(result);
+        });
       });
   }
 }

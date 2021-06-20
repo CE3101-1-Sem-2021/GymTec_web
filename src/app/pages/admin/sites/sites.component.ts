@@ -23,34 +23,7 @@ export class SitesComponent implements OnInit {
   currentSite: Site = new Site();
 
   currentSite2: Site = new Site();
-  siteOptions = [
-    {
-      Nombre: "Guácimo",
-      Provincia: "Limón",
-      Canton: "Guácimo",
-      Distrito: "Centro",
-      Fecha_Apertura: "2020-01-07T00:00:00",
-      Horarios: [
-        {
-          Dia: "Jueves",
-          Sucursal: "Guácimo",
-          Hora_Apertura: "07:00:00",
-          Hora_Cierre: "17:00:00",
-        },
-      ],
-      Gerente: "1234",
-      Capacidad_Max: 0,
-      Telefonos: [
-        {
-          Telefono: "87249591",
-          Sucursal: "Guácimo",
-        },
-      ],
-      Spa_Act: false,
-      Tienda_Act: false,
-      imageURL: "https://i.ytimg.com/vi/AFaezGT6wH0/maxresdefault.jpg",
-    },
-  ];
+  siteOptions: Site[] = [];
 
   addEquipment() {
     this.boolSmokeScreen = true;
@@ -88,18 +61,39 @@ export class SitesComponent implements OnInit {
           })
           .then((result) => {
             console.log(result);
+            this.sitesService
+              .getSites(this.adminService.token)
+              .then((response) => {
+                //console.log(response.text());
+                if (!response.ok) {
+                  throw new Error(response.toString());
+                }
+                return response.text();
+              })
+              .then((result) => {
+                this.siteOptions = JSON.parse(result) as [Site];
+                console.log(result);
+              })
+              .catch(async (err) => {
+                err.then((result: any) => {
+                  console.log(result);
+                  this.alertService.alertError(result);
+                });
+              });
           })
           .catch(async (err) => {
-            console.log(err);
+            err.then((result: any) => {
+              console.log(result);
+              this.alertService.alertError(result);
+            });
           });
 
         break;
       }
 
       case "saveChanges": {
-        const index = this.siteOptions.indexOf(this.currentSite);
-        this.siteOptions[index] = $event.attached;
         this.currentSite2 = $event.attached;
+        console.log(this.currentSite2.Telefonos);
         this.sitesService
           .updateSite(
             this.adminService.token,
@@ -125,9 +119,31 @@ export class SitesComponent implements OnInit {
           .then((result) => {
             console.log(result);
             this.alertService.alertSuccess(result);
+            this.sitesService
+              .getSites(this.adminService.token)
+              .then((response) => {
+                //console.log(response.text());
+                if (!response.ok) {
+                  throw new Error(response.toString());
+                }
+                return response.text();
+              })
+              .then((result) => {
+                this.siteOptions = JSON.parse(result) as [Site];
+                console.log(result);
+              })
+              .catch(async (err) => {
+                err.then((result: any) => {
+                  console.log(result);
+                  this.alertService.alertError(result);
+                });
+              });
           })
           .catch(async (err) => {
-            console.log(err);
+            err.then((result: any) => {
+              console.log(result);
+              this.alertService.alertError(result);
+            });
           });
 
         break;
@@ -148,11 +164,32 @@ export class SitesComponent implements OnInit {
           })
           .then((result) => {
             console.log(result);
+            this.sitesService
+              .getSites(this.adminService.token)
+              .then((response) => {
+                //console.log(response.text());
+                if (!response.ok) {
+                  throw new Error(response.toString());
+                }
+                return response.text();
+              })
+              .then((result) => {
+                this.siteOptions = JSON.parse(result) as [Site];
+                console.log(result);
+              })
+              .catch(async (err) => {
+                err.then((result: any) => {
+                  console.log(result);
+                  this.alertService.alertError(result);
+                });
+              });
             this.alertService.alertSuccess(result);
           })
           .catch(async (err) => {
-            console.log(err);
-            this.alertService.alertError(err);
+            err.then((result: any) => {
+              console.log(result);
+              this.alertService.alertError(result);
+            });
           });
 
         break;
@@ -181,8 +218,10 @@ export class SitesComponent implements OnInit {
             this.alertService.alertSuccess(result);
           })
           .catch(async (err) => {
-            console.log(err);
-            this.alertService.alertError(err);
+            err.then((result: any) => {
+              console.log(result);
+              this.alertService.alertError(result);
+            });
           });
         break;
       }
@@ -210,8 +249,10 @@ export class SitesComponent implements OnInit {
             this.alertService.alertSuccess(result);
           })
           .catch(async (err) => {
-            console.log(err);
-            this.alertService.alertError(err);
+            err.then((result: any) => {
+              console.log(result);
+              this.alertService.alertError(result);
+            });
           });
         break;
       }
@@ -233,7 +274,10 @@ export class SitesComponent implements OnInit {
         console.log(result);
       })
       .catch(async (err) => {
-        console.log(err);
+        err.then((result: any) => {
+          console.log(result);
+          this.alertService.alertError(result);
+        });
       });
   }
 }

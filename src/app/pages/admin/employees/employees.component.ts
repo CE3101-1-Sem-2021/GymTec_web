@@ -16,24 +16,7 @@ export class EmployeesComponent implements OnInit {
   boolEmployeeDetails = false;
   currentEmployee: Employee = new Employee();
   currentEmployee2: Employee = new Employee();
-  employeeOptions = [
-    {
-      Cedula: "1234",
-      Nombre: "Fabián",
-      Apellidos: "Crawford Barquero",
-      Provincia: "Cartago",
-      Canton: "Oriental",
-      Distrito: "Oriental",
-      Puesto: "Jefe",
-      Sucursal: "Guácimo",
-      Planilla: "Quincenal",
-      Salario: 99999,
-      Email: "fabian152195@gmail.com",
-      Contraseña: "1234",
-      Contrasena: "1234",
-      imageURL: "https://i.ytimg.com/vi/AFaezGT6wH0/maxresdefault.jpg",
-    },
-  ];
+  employeeOptions: Employee[] = [];
 
   addEquipment() {
     this.boolSmokeScreen = true;
@@ -74,17 +57,37 @@ export class EmployeesComponent implements OnInit {
           .then((result) => {
             console.log(result);
             this.alertService.alertSuccess(result);
+            this.employeeService
+              .getEmployees(this.adminService.token)
+              .then((response) => {
+                //console.log(response.text());
+                if (!response.ok) {
+                  throw new Error(response.toString());
+                }
+                return response.text();
+              })
+              .then((result) => {
+                this.employeeOptions = JSON.parse(result) as [Employee];
+                console.log(result);
+              })
+              .catch(async (err) => {
+                err.then((result: any) => {
+                  console.log(result);
+                  this.alertService.alertError(result);
+                });
+              });
           })
           .catch(async (err) => {
-            console.log(err);
+            err.then((result: any) => {
+              console.log(result);
+              this.alertService.alertError(result);
+            });
           });
 
         break;
       }
 
       case "saveChanges": {
-        const index = this.employeeOptions.indexOf(this.currentEmployee);
-        this.employeeOptions[index] = $event.attached;
         this.currentEmployee2 = $event.attached;
         this.employeeService
           .updateEmployee(
@@ -113,9 +116,31 @@ export class EmployeesComponent implements OnInit {
           .then((result) => {
             console.log(result);
             this.alertService.alertSuccess(result);
+            this.employeeService
+              .getEmployees(this.adminService.token)
+              .then((response) => {
+                //console.log(response.text());
+                if (!response.ok) {
+                  throw new Error(response.toString());
+                }
+                return response.text();
+              })
+              .then((result) => {
+                this.employeeOptions = JSON.parse(result) as [Employee];
+                console.log(result);
+              })
+              .catch(async (err) => {
+                err.then((result: any) => {
+                  console.log(result);
+                  this.alertService.alertError(result);
+                });
+              });
           })
           .catch(async (err) => {
-            console.log(err);
+            err.then((result: any) => {
+              console.log(result);
+              this.alertService.alertError(result);
+            });
           });
 
         break;
@@ -137,10 +162,31 @@ export class EmployeesComponent implements OnInit {
           .then((result) => {
             console.log(result);
             this.alertService.alertSuccess(result);
+            this.employeeService
+              .getEmployees(this.adminService.token)
+              .then((response) => {
+                //console.log(response.text());
+                if (!response.ok) {
+                  throw new Error(response.toString());
+                }
+                return response.text();
+              })
+              .then((result) => {
+                this.employeeOptions = JSON.parse(result) as [Employee];
+                console.log(result);
+              })
+              .catch(async (err) => {
+                err.then((result: any) => {
+                  console.log(result);
+                  this.alertService.alertError(result);
+                });
+              });
           })
           .catch(async (err) => {
-            console.log(err);
-            this.alertService.alertError(err);
+            err.then((result: any) => {
+              console.log(result);
+              this.alertService.alertError(result);
+            });
           });
 
         break;
@@ -182,7 +228,10 @@ export class EmployeesComponent implements OnInit {
         console.log(result);
       })
       .catch(async (err) => {
-        console.log(err);
+        err.then((result: any) => {
+          console.log(result);
+          this.alertService.alertError(result);
+        });
       });
   }
 }

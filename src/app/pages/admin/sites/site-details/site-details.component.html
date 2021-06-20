@@ -111,33 +111,89 @@
     />
   </div>
 
-  <div class="line" *ngFor="let telefono of siteData.Telefonos; let i = index">
-    <h1 class="tag">Teléfono:</h1>
+  <div class="bottomContainer">
+    <h2>Teléfono(s)</h2>
+    <div
+      class="addressBox"
+      *ngFor="let address of this.siteData.Telefonos; let i = index"
+    >
+      <input
+        type="text"
+        class="input clickable"
+        [(ngModel)]="editableSiteData.Telefonos[i].Telefono"
+      />
+      <img
+        class="icon"
+        src="../../../../assets/icons/remove.svg"
+        (click)="removeAddress(address.Telefono)"
+      />
+    </div>
+
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableSiteData.Telefonos[i].Telefono"
+      [(ngModel)]="newPhoneNumber.Telefono"
+    />
+    <img
+      class="icon"
+      src="../../../../assets/icons/add.svg"
+      (click)="addAddress()"
     />
   </div>
 
-  <div class="line" *ngFor="let horario of siteData.Horarios; let i = index">
-    <h1 class="tag">Dia:</h1>
+  <div class="bottomContainer">
+    <h2 class="tag">Horario(s):</h2>
+    <div class="addressBox" *ngFor="let address of this.siteData.Horarios">
+      <input
+        type="text"
+        class="input clickable"
+        placeholder="Dia"
+        [(ngModel)]="address.Dia"
+      />
+      <input
+        type="text"
+        class="input clickable"
+        placeholder="Dia"
+        [(ngModel)]="address.Hora_Apertura"
+      />
+      <input
+        type="text"
+        class="input clickable"
+        placeholder="Dia"
+        [(ngModel)]="address.Hora_Cierre"
+      />
+      <img
+        class="icon"
+        src="../../../../assets/icons/remove.svg"
+        (click)="removeSchedule(address)"
+      />
+    </div>
+
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableSiteData.Horarios[i].Dia"
+      placeholder="Dia"
+      [(ngModel)]="newSchedule.Dia"
     />
-    <h1 class="tag">Hora inicio:</h1>
+
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableSiteData.Horarios[i].Hora_Apertura"
+      placeholder="Hora inicio"
+      [(ngModel)]="newSchedule.Hora_Apertura"
     />
-    <h1 class="tag">Hora Final:</h1>
+
     <input
       type="text"
       class="input clickable"
-      [(ngModel)]="editableSiteData.Horarios[i].Hora_Cierre"
+      placeholder="Hora cierre"
+      [(ngModel)]="newSchedule.Hora_Cierre"
+    />
+
+    <img
+      class="icon"
+      src="../../../../assets/icons/add.svg"
+      (click)="addSchedule()"
     />
   </div>
 
