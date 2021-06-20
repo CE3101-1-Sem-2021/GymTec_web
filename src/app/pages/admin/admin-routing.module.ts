@@ -16,6 +16,7 @@ import { PayrollTypesComponent } from "./payroll-types/payroll-types.component";
 
 import { EquipmentTypeComponent } from "./equipment-type/equipment-type.component";
 import { EquipmentType } from "src/app/models/equipment-type";
+import { CalendarComponent } from "./calendar/calendar.component";
 
 const routes: Routes = [
   {
@@ -69,6 +70,10 @@ const routes: Routes = [
       {
         path: "treatments",
         component: TreatmentsComponent,
+      },
+      {
+        path: "calendar",
+        component: CalendarComponent
       },
       {
         path: "",

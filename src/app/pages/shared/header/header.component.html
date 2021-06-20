@@ -1,6 +1,12 @@
 <mat-toolbar class="mainContainer">
-    <button class="menuButton" (click)="showProfile()">
+    <button class="headerIcon" (click)="showProfile()">
         <img class="menuImg" src="../../../../assets/icons/menu.svg">
+    </button>
+    <button class="headerIcon" (click)="viewCalendar()">
+        <img class="menuImg" src="../../../../assets/icons/calendar.svg">
+    </button>
+    <button class="headerIcon" style="margin-right: 70%;" (click)="generatePayroll()">
+        <img class="menuImg" src="../../../../assets/icons/payments.svg">
     </button>
     <img class="logo" src="../../../../assets/images/logo.svg">
     <div class="buttonContainer">

@@ -8,7 +8,6 @@ import { MatMenuModule } from "@angular/material/menu";
 import { MatInputModule } from "@angular/material/input";
 import { MatSelectModule } from "@angular/material/select";
 import { MatToolbarModule } from "@angular/material/toolbar";
-
 import { MatRadioModule } from "@angular/material/radio";
 
 import { SideMenuComponent } from "./side-menu/side-menu.component";

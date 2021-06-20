@@ -11,14 +11,14 @@
     <div *ngIf="boolSelectedBranch" class="body">
         <div class="column">
             <h2>Inventario sin asociar</h2>
-            <div *ngFor="let element of notLinkedValues" class="selectableItem" (click)="linkInventory(element.name)">
-                {{element.name}}
+            <div *ngFor="let element of notLinkedValues" class="selectableItem" (click)="linkInventory(element.Serial)">
+                {{element.Serial}}
             </div>
         </div>
         <div class="column">
             <h2>Inventario asociado</h2>
-            <div *ngFor="let element of selectedBranch.inventory" class="selectableItem" (click)="deleteInventory(element.name)">
-                {{element.name}}
+            <div *ngFor="let element of selectedBranch.inventory" class="selectableItem" (click)="deleteInventory(element.Serial)">
+                {{element.Serial}}
             </div>
         </div>
     </div>

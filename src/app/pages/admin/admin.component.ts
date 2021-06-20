@@ -30,6 +30,9 @@ export class AdminComponent implements OnInit {
   clickEvent($event: EventData) {
     switch ($event.eventID) {
       // User profile
+      case 'generatePayroll': {
+        break;
+      }
     }
   }
 

@@ -14,14 +14,14 @@ import { Treatment } from '../models/treatment';
 export class BranchOfficeService {
   // Branch offices instantiations
   //allBranches: BranchOffice[] = [];
-  allBranches: BranchOffice[] = [{name: 'Sucursal 1', province: 'Guanacaste', canton: 'Liberia', district:'distrito', openingDate: Date.now.toString(), schedule: [''], managerID: 'Manager', capacity: 5, phoneNumber: '88888888', boolSpa: false, boolStore: false, spaTreatments: [{name: 'Tratamiento 1', ID: 'id', imageURL: 'https'}], spaServices: [], storeProducts: [], inventory: [], classes: []}];
+  allBranches: BranchOffice[] = [{name: 'Sucursal 1', province: 'Guanacaste', canton: 'Liberia', district:'distrito', openingDate: Date.now.toString(), schedule: [''], managerID: 'Manager', capacity: 5, phoneNumber: '88888888', boolSpa: false, boolStore: false, spaTreatments: [{Nombre: 'Tratamiento 1', Id: 'id', imageURL: 'https'}], spaServices: [], storeProducts: [], inventory: [], classes: []}];
   currentBranch: BranchOffice = new BranchOffice();
 
   // Global management
-  availableTreatments: Treatment[] = [{name: 'Tratamiento 1', ID: 'id', imageURL: 'https'}, {name: 'Tratamiento 2', ID: 'id', imageURL: 'https'}, {name: 'Tratamiento 3', ID: 'id', imageURL: 'https'}];
+  availableTreatments: Treatment[] = [{Nombre: 'Tratamiento 1', Id: 'id', imageURL: 'https'}, {Nombre: 'Tratamiento 2', Id: 'id', imageURL: 'https'}, {Nombre: 'Tratamiento 3', Id: 'id', imageURL: 'https'}];
   availableServices: Service[] = [];
   availableEquipmentTypes: EquipmentType[] = [];
-  availableInventory: Equipment[] = [{name: 'Equipo 1', type: 'Tipo 1', brand: 'Brand 1', serialNo: '000', price: 1000, site: 'Site'}, {name: 'Equipo 2', type: 'Tipo 2', brand: 'Brand 2', serialNo: '000', price: 1000, site: 'Site'}, {name: 'Equipo 3', type: 'Tipo 3', brand: 'Brand 3', serialNo: '000', price: 1000, site: 'Site'}];
+  availableInventory: Equipment[] = [{Tipo_Equipo: 'Tipo 1', Marca: 'Brand 1', Serial: '000', Costo: 1000, Sucursal: 'Site', imageURL: ''}, {Tipo_Equipo: 'Tipo 1', Marca: 'Brand 1', Serial: '000', Costo: 1000, Sucursal: 'Site', imageURL: ''}, {Tipo_Equipo: 'Tipo 1', Marca: 'Brand 1', Serial: '000', Costo: 1000, Sucursal: 'Site', imageURL: ''}];
   availableProducts: Product[] = [];
 
   constructor() { }

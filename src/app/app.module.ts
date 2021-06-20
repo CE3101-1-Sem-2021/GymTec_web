@@ -5,7 +5,6 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SharedModule } from "./pages/shared/shared.module";
-
 import { MatRadioModule } from "@angular/material/radio";
 
 @NgModule({
@@ -17,7 +16,6 @@ import { MatRadioModule } from "@angular/material/radio";
     SharedModule,
     MatRadioModule,
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

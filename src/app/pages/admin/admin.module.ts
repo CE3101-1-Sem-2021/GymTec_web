@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-schedule';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ManagementComponent } from './management/management.component';
@@ -23,6 +24,7 @@ import { TreatmentComponent } from "./treatments/treatment/treatment.component";
 import { NewTreatmentComponent } from "./treatments/new-treatment/new-treatment.component";
 import { TreatmentDetailsComponent } from "./treatments/treatment-details/treatment-details.component";
 import { EquipmentDetailsComponent } from "./inventory/equipment-details/equipment-details.component";
+import { EquipmentComponent } from './inventory/equipment/equipment.component';
 import { NewEquipmentComponent } from "./inventory/new-equipment/new-equipment.component";
 import { EquipmentTypeComponent } from "./equipment-type/equipment-type.component";
 import { EquipmentTypeInstanceComponent } from './equipment-type/equipment-type-instance/equipment-type-instance.component';
@@ -46,6 +48,7 @@ import { NewServiceComponent } from './services/new-service/new-service.componen
 import { ProductComponent } from './products/product/product.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { NewProductComponent } from './products/new-product/new-product.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -91,9 +94,11 @@ import { NewProductComponent } from './products/new-product/new-product.componen
     LinkTreatmentsComponent,
     LinkProductsComponent,
     LinkInventoryComponent,
-    CreateClassComponent
+    CreateClassComponent,
+    EquipmentComponent,
+    CalendarComponent
   ],
-  imports: [CommonModule, AdminRoutingModule, SharedModule],
+  imports: [CommonModule, AdminRoutingModule, SharedModule, ScheduleModule, RecurrenceEditorModule],
 })
 
 export class AdminModule { }

@@ -37,4 +37,16 @@ export class HeaderComponent implements OnInit {
     
   }
 
+  viewCalendar() {
+    this.router.navigateByUrl('/pages/admin/calendar');
+    console.log('Calendar');
+  }
+
+  generatePayroll() {
+    this.raiseEvent.emit({
+      eventID: 'generatePayroll',
+      attached: null
+    })
+  }
+
 }
