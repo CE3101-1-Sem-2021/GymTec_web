@@ -4,8 +4,7 @@ import { DayService, WeekService, WorkWeekService, MonthService, AgendaService }
 @Component({
   selector: 'app-calendar',
   providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService],
-  template: `<ejs-schedule> </ejs-schedule>`,
-  //templateUrl: './calendar.component.html',
+  template: '<ejs-schedule></ejs-schedule>',
   styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent implements OnInit {
