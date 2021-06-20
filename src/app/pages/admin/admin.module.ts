@@ -1,26 +1,29 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { AdminRoutingModule } from "./admin-routing.module";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { AdminRoutingModule } from './admin-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
-import { SharedModule } from "../shared/shared.module";
-
-import { DashboardComponent } from "./dashboard/dashboard.component";
-import { ManagementComponent } from "./management/management.component";
-import { SitesComponent } from "./sites/sites.component";
-import { TreatmentsComponent } from "./treatments/treatments.component";
-import { PositionsComponent } from "./positions/positions.component";
-import { PayrollsComponent } from "./payrolls/payrolls.component";
-import { EmployeesComponent } from "./employees/employees.component";
-import { ServicesComponent } from "./services/services.component";
-import { EquipmentComponent } from "./inventory/equipment/equipment.component";
-import { InventoryComponent } from "./inventory/inventory.component";
-import { ProductsComponent } from "./products/products.component";
-import { PayrollTypesComponent } from "./payroll-types/payroll-types.component";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ManagementComponent } from './management/management.component';
+import { SitesComponent } from './sites/sites.component';
+import { TreatmentsComponent } from './treatments/treatments.component';
+import { PositionsComponent } from './positions/positions.component';
+import { PayrollsComponent } from './payrolls/payrolls.component';
+import { EmployeesComponent } from './employees/employees.component';
+import { ServicesComponent } from './services/services.component';
+import { InventoryComponent } from './inventory/inventory.component';
+import { ProductsComponent } from './products/products.component';
+import { PayrollTypesComponent } from './payroll-types/payroll-types.component';
+import { LinkTreatmentsComponent } from './dashboard/link-treatments/link-treatments.component';
+import { LinkProductsComponent } from './dashboard/link-products/link-products.component';
+import { LinkInventoryComponent } from './dashboard/link-inventory/link-inventory.component';
+import { CreateClassComponent } from './dashboard/create-class/create-class.component';
 import { MenuOptionComponent } from "./menu-option/menu-option.component";
 import { TreatmentComponent } from "./treatments/treatment/treatment.component";
 import { NewTreatmentComponent } from "./treatments/new-treatment/new-treatment.component";
 import { TreatmentDetailsComponent } from "./treatments/treatment-details/treatment-details.component";
 import { EquipmentDetailsComponent } from "./inventory/equipment-details/equipment-details.component";
+import { EquipmentComponent } from "./inventory/equipment/equipment.component";
 import { NewEquipmentComponent } from "./inventory/new-equipment/new-equipment.component";
 import { EquipmentTypeComponent } from "./equipment-type/equipment-type.component";
 import { EquipmentTypeInstanceComponent } from './equipment-type/equipment-type-instance/equipment-type-instance.component';
@@ -44,6 +47,9 @@ import { NewServiceComponent } from './services/new-service/new-service.componen
 import { ProductComponent } from './products/product/product.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { NewProductComponent } from './products/new-product/new-product.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 @NgModule({
   declarations: [
@@ -55,7 +61,6 @@ import { NewProductComponent } from './products/new-product/new-product.componen
     PayrollsComponent,
     EmployeesComponent,
     ServicesComponent,
-    EquipmentComponent,
     InventoryComponent,
     ProductsComponent,
     PayrollTypesComponent,
@@ -87,7 +92,14 @@ import { NewProductComponent } from './products/new-product/new-product.componen
     ProductComponent,
     ProductDetailsComponent,
     NewProductComponent,
+    LinkTreatmentsComponent,
+    LinkProductsComponent,
+    LinkInventoryComponent,
+    CreateClassComponent,
+    EquipmentComponent,
+    CalendarComponent
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
 })
-export class AdminModule {}
+
+export class AdminModule { }

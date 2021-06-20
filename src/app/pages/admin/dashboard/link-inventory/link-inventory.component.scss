@@ -1,0 +1,53 @@
+.mainCard {
+  max-height: 80%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  z-index: 10;
+  position: absolute;
+  left: 30%;
+  top: 10%;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  width: 100%;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.body {
+  height: 90%;
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  //max-height: ;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.selectableItem {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selectableItem:hover {
+  background-color: rgba($color: #000000, $alpha: 0.1);
+  cursor: pointer;
+}

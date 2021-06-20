@@ -1,0 +1,55 @@
+<mat-card class="mainCard">
+    <div class="header">
+        <img class="icon" src="../../../../assets/icons/return.svg" (click)="return()">
+        <h1 style="margin: 0; margin-left: 40%;">Clases disponibles</h1>
+    </div>
+    <div class="row">
+        <h2 class="item">Nombre</h2>
+        <h2 class="item">Tipo</h2>
+        <h2 class="item">Instructor(a)</h2>
+        <h2 class="item">Modalidad</h2>
+        <h2 class="item">Capacidad</h2>
+        <h2 class="item">Horario</h2>
+    </div>
+    <div class="body">
+        <div class="rowClass row" *ngFor="let class of allClasses">
+            <h3 class="item">{{class.classID}}</h3>
+            <h3 class="item">{{class.type}}</h3>
+            <h3 class="item">{{class.instructorID}}</h3>
+            <h3 class="item">{{class.modality}}</h3>
+            <h3 class="item">{{class.capacity}}</h3>
+            <h3 class="item">{{class.date[0] + '-' + class.startTime + ' & ' + class.date[1] + '-' + class.endingTime}}</h3>
+        </div>
+    </div>
+    <div class="horizontalCenter">
+        <h2>Crear clase</h2>
+    </div>
+    <div class="row">
+        <input class="input" matInput type="text" placeholder=" Nombre curso" [(ngModel)]="newClass.classID">
+        <input class="input" matInput type="text" placeholder=" Tipo" [(ngModel)]="newClass.type">
+        <gt-drop-down
+            [title]="'Instructor(a)'"
+            [elemList]="instructors"
+            (raiseEvent)="clickEvent($event)">
+        </gt-drop-down>
+        <gt-drop-down
+            [title]="'Modalidad'"
+            [elemList]="modality"
+            (raiseEvent)="clickEvent($event)">
+        </gt-drop-down>
+        <input class="inputShort" matInput type="number" [(ngModel)]="newClass.capacity">
+        <app-select
+            [title]="'Dias'"
+            [elemList]="weekDays"
+            (raiseEvent)="clickEvent($event)">
+        </app-select>
+        <gt-drop-down
+            [title]="'Horario'"
+            [elemList]="schedules"
+            (raiseEvent)="clickEvent($event)">
+        </gt-drop-down>
+    </div>
+    <div class="horizontalCenter">
+        <button class="button" (click)="createClass()">Crear</button>
+    </div>
+</mat-card>

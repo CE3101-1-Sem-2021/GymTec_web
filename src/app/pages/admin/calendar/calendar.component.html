@@ -1,0 +1,228 @@
+<div class="header">
+    <!--<div class="arrowContainer">
+        <button class="button" (click)="prevWeek()" >
+            <img src="../../../../assets/icons/backArrow.svg">
+        </button>
+        <button class="button" (click)="nextWeek()">
+            <img src="../../../../assets/icons/forwardArrow.svg">
+        </button>
+    </div>-->
+    <div class="arrowContainer">
+        <div
+            class="btn btn-primary"
+            mwlCalendarPreviousView
+            [view]="view"
+            [(viewDate)]="viewDate"
+            (viewDateChange)="closeOpenMonthViewDay()"
+        >
+            <img class="button" src="../../../../assets/icons/backArrow.svg">
+        </div>
+        <div
+            class="btn btn-outline-secondary"
+            mwlCalendarToday
+            [(viewDate)]="viewDate"
+        >
+            <h1 class="button" style="margin-top: 10px;">Today</h1>
+        </div>
+        <div
+            class="btn btn-primary"
+            mwlCalendarNextView
+            [view]="view"
+            [(viewDate)]="viewDate"
+            (viewDateChange)="closeOpenMonthViewDay()"
+          >
+          <img class="button" src="../../../../assets/icons/forwardArrow.svg">
+          </div>
+    </div>
+    <h1 style="margin-top: 5px;" >{{monthYear}}</h1>
+    <button class="button" style="margin-left: 30px; background-color: dodgerblue;">
+        <img src="../../../../assets/icons/copy.svg">
+    </button>
+</div>
+<mwl-calendar-week-view
+  [viewDate]="viewDate"
+  [refresh]="refresh"
+  [events]="events"
+  [dayStartHour]=5
+  [dayEndHour]=22
+>
+</mwl-calendar-week-view>
+
+<!--<div class="mainContainer">
+    <div class="header">
+        <div class="arrowContainer">
+            <button class="button">
+                <img src="../../../../assets/icons/backArrow.svg">
+            </button>
+            <button class="button">
+                <img src="../../../../assets/icons/forwardArrow.svg">
+            </button>
+        </div>
+        <h1 style="margin-top: 5px;" >{{monthYear}}</h1>
+        <button class="button" style="margin-left: 30px; background-color: dodgerblue;">
+            <img src="../../../../assets/icons/copy.svg">
+        </button>
+    </div>
+    <div class="row" style="margin-left: 32px; margin-top: 10px; height: 30px;">
+        <div class="item" style="font-weight: bold;">Dom {{weekDays[0]}}</div>
+        <div class="item" style="font-weight: bold;">Lun {{weekDays[1]}}</div>
+        <div class="item" style="font-weight: bold;">Mar {{weekDays[2]}}</div>
+        <div class="item" style="font-weight: bold;">Mie {{weekDays[3]}}</div>
+        <div class="item" style="font-weight: bold;">Jue {{weekDays[4]}}</div>
+        <div class="item" style="font-weight: bold;">Vie {{weekDays[5]}}</div>
+        <div class="item" style="font-weight: bold;">Sab {{weekDays[6]}}</div>
+    </div>
+    <div class="bottom">
+        <div class="row">
+            <h2>7:00</h2>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        <div class="row">
+            <h2>8:00</h2>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        <div class="row">
+            <h2>9:00</h2>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        <div class="row">
+            <h2>10:00</h2>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        <div class="row">
+            <h2>11:00</h2>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        <div class="row">
+            <h2>12:00</h2>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        <div class="row">
+            <h2>13:00</h2>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        <div class="row">
+            <h2>14:00</h2>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        <div class="row">
+            <h2>15:00</h2>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        <div class="row">
+            <h2>16:00</h2>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        <div class="row">
+            <h2>17:00</h2>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        <div class="row">
+            <h2>18:00</h2>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        <div class="row">
+            <h2>19:00</h2>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        <div class="row">
+            <h2>20:00</h2>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        <div class="row">
+            <h2>21:00</h2>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </div>
+</div>
+-->

@@ -1,1 +1,32 @@
-<p>dashboard works!</p>
+<div *ngIf="boolSmokeScreen" class="smokeScreen"></div>
+<app-link-treatments *ngIf="boolLinkTreatments" [branchOffices]="allBranches" [allTreatments]="allTreatments" (raiseEvent)="childEvent($event)"></app-link-treatments>
+<app-link-inventory *ngIf="boolLinkInventory" [branchOffices]="allBranches" [allInventory]="allInventory" (raiseEvent)="childEvent($event)"></app-link-inventory>
+<app-link-products *ngIf="boolLinkProducts" [branchOffices]="allBranches" [allProducts]="allProducts" (raiseEvent)="childEvent($event)"></app-link-products>
+<app-create-class *ngIf="boolShowClasses" [allClasses]="allClasses" (raiseEvent)="childEvent($event)"></app-create-class>
+
+<div class="mainContainer">
+    <mat-card class="matCardLarge" (click)="showTreatments()">
+        <h2 class="titleLarge">Asociar tratamientos</h2>
+        <div class="imageContainer">
+            <img src="../../../../assets/icons/spa.svg" class="imageLarge">
+        </div>
+    </mat-card>
+    <mat-card class="matCardShort" (click)="showProducts()">
+        <h2 class="titleShort">Asociar productos</h2>
+        <div class="imageContainer">
+            <img src="../../../../assets/icons/products.svg" class="imageShort">
+        </div>
+    </mat-card>
+    <mat-card class="matCardShort clickableCard" (click)="showInventory()">
+        <h2 class="titleShort">Asociar inventario</h2>
+        <div class="imageContainer">
+            <img src="../../../../assets/icons/inventory.svg" class="imageShort">
+        </div>
+    </mat-card>
+    <mat-card class="matCardLarge clickableCard" (click)="showClasses()">
+        <h2 class="titleLarge">Crear clases</h2>
+        <div class="imageContainer">
+            <img src="../../../../assets/icons/classes.svg" class="imageLarge">
+        </div>
+    </mat-card>
+</div>
