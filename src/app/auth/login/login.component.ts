@@ -45,10 +45,14 @@ export class LoginComponent implements OnInit {
         .then((result) => {
           console.log(result);
           this.authService.token = result;
+          this.alertService.alertSuccess("Login exitoso");
           this.router.navigateByUrl("/pages/admin/home");
         })
         .catch(async (err) => {
-          console.log(err);
+          err.then((result: any) => {
+            console.log(result);
+            this.alertService.alertError(result);
+          });
         });
     } else if (this.view == "Client") {
       this.router.navigateByUrl("/pages/client/home");
