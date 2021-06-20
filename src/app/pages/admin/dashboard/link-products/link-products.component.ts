@@ -36,7 +36,7 @@ export class LinkProductsComponent implements OnInit {
     for(const product of this.allProducts) {
       let included = false;
       for(const element of this.selectedBranch.storeProducts) {
-        if(product.name == element.name) {
+        if(product.Nombre == element.Nombre) {
           included = true;
           break;
         }
@@ -49,7 +49,7 @@ export class LinkProductsComponent implements OnInit {
 
   linkProduct(name: String) {
     for(const product of this.allProducts) {
-      if(product.name == name) {
+      if(product.Nombre == name) {
         this.selectedBranch.storeProducts.push(product);
         break;
       }
@@ -59,7 +59,7 @@ export class LinkProductsComponent implements OnInit {
 
   deleteProduct(name: String) {
     for(const product of this.allProducts) {
-      if(product.name == name) {
+      if(product.Nombre == name) {
         const position = this.selectedBranch.storeProducts.indexOf(product);
         this.selectedBranch.storeProducts.splice(position, 1);
         this.notLinkedValues.push(product);

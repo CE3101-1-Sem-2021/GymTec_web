@@ -36,7 +36,7 @@ export class LinkInventoryComponent implements OnInit {
     for(const equipment of this.allInventory) {
       let included = false;
       for(const element of this.selectedBranch.inventory) {
-        if(equipment.name == element.name) {
+        if(equipment.Serial == element.Serial) {
           included = true;
           break;
         }
@@ -47,9 +47,9 @@ export class LinkInventoryComponent implements OnInit {
     }
   }
 
-  linkInventory(name: String) {
+  linkInventory(serial: String) {
     for(const equipment of this.allInventory) {
-      if(equipment.name == name) {
+      if(equipment.Serial == serial) {
         this.selectedBranch.inventory.push(equipment);
         break;
       }
@@ -57,9 +57,9 @@ export class LinkInventoryComponent implements OnInit {
     this.getNotLinked();
   }
 
-  deleteInventory(name: String) {
+  deleteInventory(serial: String) {
     for(const equipment of this.allInventory) {
-      if(equipment.name == name) {
+      if(equipment.Serial == serial) {
         const position = this.selectedBranch.inventory.indexOf(equipment);
         this.selectedBranch.inventory.splice(position, 1);
         this.notLinkedValues.push(equipment);

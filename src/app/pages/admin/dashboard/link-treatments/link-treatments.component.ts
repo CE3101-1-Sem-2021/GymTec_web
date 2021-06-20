@@ -36,7 +36,7 @@ export class LinkTreatmentsComponent implements OnInit {
     for(const treatment of this.allTreatments) {
       let included = false;
       for(const element of this.selectedBranch.spaTreatments) {
-        if(treatment.name == element.name) {
+        if(treatment.Nombre == element.Nombre) {
           included = true;
           break;
         }
@@ -49,7 +49,7 @@ export class LinkTreatmentsComponent implements OnInit {
 
   linkTreatment(name: String) {
     for(const treatment of this.allTreatments) {
-      if(treatment.name == name) {
+      if(treatment.Nombre == name) {
         this.selectedBranch.spaTreatments.push(treatment);
         break;
       }
@@ -59,7 +59,7 @@ export class LinkTreatmentsComponent implements OnInit {
 
   deleteTreatment(name: String) {
     for(const treatment of this.allTreatments) {
-      if(treatment.name == name) {
+      if(treatment.Nombre == name) {
         const position = this.selectedBranch.spaTreatments.indexOf(treatment);
         this.selectedBranch.spaTreatments.splice(position, 1);
         this.notLinkedValues.push(treatment);

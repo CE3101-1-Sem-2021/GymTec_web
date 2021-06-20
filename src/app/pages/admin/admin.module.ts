@@ -23,6 +23,7 @@ import { TreatmentComponent } from "./treatments/treatment/treatment.component";
 import { NewTreatmentComponent } from "./treatments/new-treatment/new-treatment.component";
 import { TreatmentDetailsComponent } from "./treatments/treatment-details/treatment-details.component";
 import { EquipmentDetailsComponent } from "./inventory/equipment-details/equipment-details.component";
+import { EquipmentComponent } from "./inventory/equipment/equipment.component";
 import { NewEquipmentComponent } from "./inventory/new-equipment/new-equipment.component";
 import { EquipmentTypeComponent } from "./equipment-type/equipment-type.component";
 import { EquipmentTypeInstanceComponent } from './equipment-type/equipment-type-instance/equipment-type-instance.component';
@@ -91,7 +92,8 @@ import { NewProductComponent } from './products/new-product/new-product.componen
     LinkTreatmentsComponent,
     LinkProductsComponent,
     LinkInventoryComponent,
-    CreateClassComponent
+    CreateClassComponent,
+    EquipmentComponent
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
 })

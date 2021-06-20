@@ -11,14 +11,14 @@
     <div *ngIf="boolSelectedBranch" class="body">
         <div class="column">
             <h2>Tratamientos sin asociar</h2>
-            <div *ngFor="let element of notLinkedValues" class="selectableItem" (click)="linkTreatment(element.name)">
-                {{element.name}}
+            <div *ngFor="let element of notLinkedValues" class="selectableItem" (click)="linkTreatment(element.Nombre)">
+                {{element.Nombre}}
             </div>
         </div>
         <div class="column">
             <h2>Tratamientos asociados</h2>
-            <div *ngFor="let element of selectedBranch.spaTreatments" class="selectableItem" (click)="deleteTreatment(element.name)">
-                {{element.name}}
+            <div *ngFor="let element of selectedBranch.spaTreatments" class="selectableItem" (click)="deleteTreatment(element.Nombre)">
+                {{element.Nombre}}
             </div>
         </div>
     </div>
