@@ -1,9 +1,10 @@
 <div *ngIf="boolSmokeScreen" class="smokeScreen"></div>
+
 <app-link-treatments *ngIf="boolLinkTreatments" [branchOffices]="allBranches" [allTreatments]="allTreatments" (raiseEvent)="childEvent($event)"></app-link-treatments>
-<app-link-inventory *ngIf="boolLinkInventory" [branchOffices]="allBranches" [allInventory]="allInventory" (raiseEvent)="childEvent($event)"></app-link-inventory>
+<!--<app-link-inventory *ngIf="boolLinkInventory" [branchOffices]="allBranches" [allInventory]="allInventory" (raiseEvent)="childEvent($event)"></app-link-inventory>
 <app-link-products *ngIf="boolLinkProducts" [branchOffices]="allBranches" [allProducts]="allProducts" (raiseEvent)="childEvent($event)"></app-link-products>
 <app-create-class *ngIf="boolShowClasses" [allClasses]="allClasses" (raiseEvent)="childEvent($event)"></app-create-class>
-
+-->
 <div class="mainContainer">
     <mat-card class="matCardLarge" (click)="showTreatments()">
         <h2 class="titleLarge">Asociar tratamientos</h2>

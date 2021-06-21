@@ -17,7 +17,7 @@
         </div>
         <div class="column">
             <h2>Tratamientos asociados</h2>
-            <div *ngFor="let element of selectedBranch.spaTreatments" class="selectableItem" (click)="deleteTreatment(element.Nombre)">
+            <div *ngFor="let element of linkedValues" class="selectableItem" (click)="deleteTreatment(element.Nombre)">
                 {{element.Nombre}}
             </div>
         </div>
