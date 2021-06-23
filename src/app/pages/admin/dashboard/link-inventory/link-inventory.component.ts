@@ -1,7 +1,10 @@
+import { isNull } from '@angular/compiler/src/output/output_ast';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { BranchOffice } from 'src/app/models/branch-office';
 import { Equipment } from 'src/app/models/equipment';
 import { EventData } from 'src/app/models/event-data';
+import { Site } from 'src/app/models/site';
+import { AdminService } from 'src/app/services/admin.service';
+import { BranchOfficeService } from 'src/app/services/branch-office.service';
 
 @Component({
   selector: 'app-link-inventory',
@@ -9,40 +12,44 @@ import { EventData } from 'src/app/models/event-data';
   styleUrls: ['./link-inventory.component.scss']
 })
 export class LinkInventoryComponent implements OnInit {
-  @Input() branchOffices!: BranchOffice[];
+  @Input() branchOffices!: Site[];
   @Input() allInventory!: Equipment[];
   @Output() raiseEvent = new EventEmitter<EventData>();
 
   boolSelectedBranch = false;
   branchNames: String[] = [];
-  selectedBranch: BranchOffice = new BranchOffice();
+  selectedBranch: Site = new Site();
   notLinkedValues: Equipment[] = [];
+  linkedValues: Equipment[] = [];
 
-  constructor() { }
+  constructor(private branchService: BranchOfficeService, private adminService: AdminService) { }
 
   ngOnInit(): void {
     for(const branch of this.branchOffices) {
-      this.branchNames.push(branch.name);
+      this.branchNames.push(branch.Nombre);
     }
   }
 
   selectBranch() {
     this.boolSelectedBranch = true;
     this.getNotLinked();
+    this.getLinked();
   }
 
   getNotLinked() {
     this.notLinkedValues = [];
     for(const equipment of this.allInventory) {
-      let included = false;
-      for(const element of this.selectedBranch.inventory) {
-        if(equipment.Serial == element.Serial) {
-          included = true;
-          break;
-        }
-      }
-      if(!included) {
+      if((equipment.Sucursal == "") || (equipment.Sucursal == null)) {
         this.notLinkedValues.push(equipment);
+      }
+    }
+  }
+  
+  getLinked() {
+    this.linkedValues = [];
+    for(const equipment of this.allInventory) {
+      if(equipment.Sucursal == this.selectedBranch.Nombre) {
+        this.linkedValues.push(equipment);
       }
     }
   }
@@ -50,22 +57,25 @@ export class LinkInventoryComponent implements OnInit {
   linkInventory(serial: String) {
     for(const equipment of this.allInventory) {
       if(equipment.Serial == serial) {
-        this.selectedBranch.inventory.push(equipment);
+        equipment.Sucursal = this.selectedBranch.Nombre;
+        this.branchService.updateEquipment(this.adminService.token, equipment, true);
         break;
       }
     }
     this.getNotLinked();
+    this.getLinked();
   }
 
   deleteInventory(serial: String) {
     for(const equipment of this.allInventory) {
       if(equipment.Serial == serial) {
-        const position = this.selectedBranch.inventory.indexOf(equipment);
-        this.selectedBranch.inventory.splice(position, 1);
-        this.notLinkedValues.push(equipment);
+        equipment.Sucursal = "";
+        this.branchService.updateEquipment(this.adminService.token, equipment, false);
         break;
       }
     }
+    this.getNotLinked();
+    this.getLinked();
   }
 
   return() {
@@ -85,8 +95,10 @@ export class LinkInventoryComponent implements OnInit {
   clickEvent($event: EventData) {
     switch ($event.eventID) {
       case 'Sucursal': {
+        this.linkedValues = [];
+        this.notLinkedValues = [];
         for(const branch of this.branchOffices) {
-          if(branch.name == $event.attached) {
+          if(branch.Nombre == $event.attached) {
             this.selectedBranch = branch;
             break;
           }

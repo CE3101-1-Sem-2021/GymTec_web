@@ -1,3 +1,5 @@
+import { Site } from "./site";
+
 export class Equipment {
   Tipo_Equipo = "";
   Marca = "";

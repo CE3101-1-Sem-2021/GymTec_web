@@ -8,8 +8,9 @@ import { MatMenuModule } from "@angular/material/menu";
 import { MatInputModule } from "@angular/material/input";
 import { MatSelectModule } from "@angular/material/select";
 import { MatToolbarModule } from "@angular/material/toolbar";
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatRadioModule } from "@angular/material/radio";
+import {MatNativeDateModule} from '@angular/material/core';
 
 import { SideMenuComponent } from "./side-menu/side-menu.component";
 import { DropDownComponent } from "./drop-down/drop-down.component";
@@ -19,6 +20,8 @@ import { EditCardComponent } from "./edit-card/edit-card.component";
 import { SelectComponent } from './select/select.component';
 import { CalendarModule, DateAdapter } from "angular-calendar";
 import { adapterFactory } from "angular-calendar/date-adapters/date-fns";
+import { ClientHeaderComponent } from './client-header/client-header.component';
+import { DatePickerComponent } from './date-picker/date-picker.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,8 @@ import { adapterFactory } from "angular-calendar/date-adapters/date-fns";
     InfoCardComponent,
     EditCardComponent,
     SelectComponent,
+    ClientHeaderComponent,
+    DatePickerComponent
   ],
   imports: [
     CommonModule,
@@ -43,6 +48,8 @@ import { adapterFactory } from "angular-calendar/date-adapters/date-fns";
     MatToolbarModule,
     MatSelectModule,
     MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
   ],
   exports: [
@@ -58,10 +65,14 @@ import { adapterFactory } from "angular-calendar/date-adapters/date-fns";
     MatToolbarModule,
     MatSelectModule,
     CalendarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     SideMenuComponent,
     HeaderComponent,
     DropDownComponent,
-    SelectComponent
+    SelectComponent,
+    ClientHeaderComponent,
+    DatePickerComponent
   ]
 })
 export class SharedModule {}

@@ -32,4 +32,17 @@ export class AdminService {
       }
     );
   }
+
+  generatePayroll() {
+    return fetch(
+      "https://gymtecrelational.conveyor.cloud/api/Payroll/generatePayments/" +
+        this.token,
+      {
+        method: "POST",
+        headers: myHeaders,
+        redirect: "follow",
+        mode: "cors",
+      }
+    );
+  }
 }

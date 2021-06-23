@@ -1,9 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { BranchOffice } from 'src/app/models/branch-office';
 import { EventData } from 'src/app/models/event-data';
 import { Product } from 'src/app/models/product';
 import { Site } from 'src/app/models/site';
-import { Treatment } from 'src/app/models/treatment';
 import { AdminService } from 'src/app/services/admin.service';
 import { BranchOfficeService } from 'src/app/services/branch-office.service';
 
@@ -21,7 +19,7 @@ export class LinkProductsComponent implements OnInit {
   branchNames: String[] = [];
   selectedBranch: Site = new Site();
   notLinkedValues: Product[] = [];
-  linkedValues: Treatment[] = [];
+  linkedValues: Product[] = [];
 
   constructor(private branchService: BranchOfficeService, private adminService: AdminService) { }
 
@@ -40,42 +38,66 @@ export class LinkProductsComponent implements OnInit {
   getNotLinked() {
     this.notLinkedValues = [];
     for(const product of this.allProducts) {
-      let included = false;
-      /*for(const element of this.selectedBranch.storeProducts) {
-        if(product.Nombre == element.Nombre) {
-          included = true;
+      let linked = false;
+      for (const branch of product.Sucursals) {
+        if(branch.Nombre === this.selectedBranch.Nombre) {
+          linked = true;
           break;
         }
-      }*/
-      if(!included) {
+      }
+      if(!linked) {
         this.notLinkedValues.push(product);
       }
     }
   }
 
   getLinked() {
-    
+    this.linkedValues = [];
+    for(const product of this.allProducts) {
+      let linked = false;
+      for (const branch of product.Sucursals) {
+        if(branch.Nombre === this.selectedBranch.Nombre) {
+          linked = true;
+          break;
+        }
+      }
+      if(linked) {
+        this.linkedValues.push(product);
+      }
+    }
   }
 
   linkProduct(name: String) {
     for(const product of this.allProducts) {
       if(product.Nombre == name) {
+        product.Sucursals.push(this.selectedBranch);
+        this.branchService.assignProduct(this.adminService.token, product.Codigo_Barras, this.selectedBranch.Nombre);
+        break;
         //this.selectedBranch.storeProducts.push(product);
         break;
       }
     }
     this.getNotLinked();
+    this.getLinked();
   }
 
   deleteProduct(name: String) {
     for(const product of this.allProducts) {
       if(product.Nombre == name) {
-        /*const position = this.selectedBranch.storeProducts.indexOf(product);
-        this.selectedBranch.storeProducts.splice(position, 1);
-        this.notLinkedValues.push(product);*/
+        let position = 0;
+        for(let branch of product.Sucursals) {
+          if(branch.Nombre === this.selectedBranch.Nombre) {
+            position = product.Sucursals.indexOf(branch);
+            break;
+          }
+        }
+        product.Sucursals.splice(position, 1);
+        this.branchService.unassignProduct(this.adminService.token, product.Codigo_Barras, this.selectedBranch.Nombre);
         break;
       }
     }
+    this.getNotLinked();
+    this.getLinked();
   }
 
   return() {
@@ -95,6 +117,8 @@ export class LinkProductsComponent implements OnInit {
   clickEvent($event: EventData) {
     switch ($event.eventID) {
       case 'Sucursal': {
+        this.linkedValues = [];
+        this.notLinkedValues = [];
         for(const branch of this.branchOffices) {
           if(branch.Nombre == $event.attached) {
             this.selectedBranch = branch;

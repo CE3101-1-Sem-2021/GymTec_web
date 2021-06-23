@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CrPcdService } from 'cr-pcd';
+import { Client } from 'src/app/models/client';
 
 import { EventData } from 'src/app/models/event-data';
+import { AlertService } from 'src/app/services/alert.service';
+import { ClientService } from 'src/app/services/client.service';
 
 @Component({
   selector: 'app-register',
@@ -9,89 +13,45 @@ import { EventData } from 'src/app/models/event-data';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  provinces: String[] = [];
-  provinceID = 0;
-  cantons: String[] = [];
-  cantonID = 0;
-  districts: String[] = [];
+  newClient: Client = new Client();
 
-  name = '';
-  lastNames = '';
-  email = '';
-  password = '';
-  province = '';
-  canton = '';
-  district = '';
+  constructor(private clientService: ClientService, private alertService: AlertService, private router: Router) { }
 
-  constructor(private crPcd: CrPcdService) { }
-
-  ngOnInit(): void {
-    this.getProvinces();
-  }
-
-  getProvinces() {
-    const provincesObject: any = this.crPcd.getProvinces();
-
-    let index = 1;
-    while(provincesObject[index] != undefined) {
-      this.provinces.push(provincesObject[index]);
-      index += 1;
-    }
-  }
-
-  getcrPcdID(name: String, objList: any, multiplier: number) {
-    let ID = 0;
-    let index = 1*multiplier + 1;
-
-    while(objList[index] != undefined) {
-      if(objList[index] == name) {
-        ID = index;
-        break
-      }
-      index += 1;
-    }
-    return ID
-  }
-
-  selectedProvince($event: EventData) {
-    this.cantons = [];
-    this.canton = '';
-    this.districts = [];
-    this.district = '';
-    this.province = $event.attached;
-    
-    const provincesObject: any = this.crPcd.getProvinces();
-    this.provinceID = this.getcrPcdID($event.attached, provincesObject, 0);
-    const cantonsObject: any = this.crPcd.getCantons(this.provinceID.toString());
-    
-    let index = this.provinceID*100 + 1;
-    while(cantonsObject[index] != undefined) {
-      this.cantons.push(cantonsObject[index]);
-      index += 1;
-    }
-  }
-
-  selectedCanton($event: EventData) {
-    this.districts = [];
-    this.district = '';
-    this.canton = $event.attached;
-
-    const cantonsObject: any = this.crPcd.getCantons(this.provinceID.toString());
-    this.cantonID = this.getcrPcdID($event.attached, cantonsObject, 100);
-    const districtsObject: any = this.crPcd.getDistricts(this.cantonID.toString());
-
-    let index = this.cantonID*100 + 1;
-    while(districtsObject[index] != undefined) {
-      this.districts.push(districtsObject[index]);
-      index += 1;
-    }
-  }
-
-  selectedDistrict($event: EventData) {
-    this.district = $event.attached;
-  }
+  ngOnInit(): void {}
 
   register() {
+    if(this.newClient.nombre != '' && this.newClient.apellidos != '' && this.newClient.cedula != '' && this.newClient.edad != 0 && this.newClient.fechaNacimiento != '' && this.newClient.peso != 0 && this.newClient.imc != 0 && this.newClient.direccion != '' && this.newClient.email != '' && this.newClient.password != ''){
+      this.clientService.registerClient(this.newClient).then((response) => {
+        if (!response.ok) {
+          throw new Error(response.toString());
+        }
+        return response.text();
+      })
+      .then((result) => {
+        this.alertService.alertSuccess('Clase creada exitosamente.')
+        this.clientService.token = result;
+        this.router.navigateByUrl("/pages/client/home");
+        console.log(result);
+      })
+      .catch(async (err) => {
+        err.then((result: any) => {
+          console.log(result);
+          this.alertService.alertError(result);
+        });
+      });
+    }
+    else {
 
+    }
+  }
+
+  clickEvent($event: EventData) {
+    switch ($event.eventID) {
+      case 'Date': {
+        let date = new Date($event.attached);
+        this.newClient.fechaNacimiento = date.getUTCFullYear().toString() + '-' + (date.getUTCMonth()+1).toString() + '-' + date.getUTCDate().toString();
+        break;
+      }
+    }
   }
 }

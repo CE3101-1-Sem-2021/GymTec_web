@@ -1,1 +1,6 @@
-<p>client works!</p>
+<app-client-header
+  [headerButtons]="buttons"
+  [links]="urlButtons"
+  (raiseEvent)="clickEvent($event)">
+</app-client-header>
+<router-outlet></router-outlet>

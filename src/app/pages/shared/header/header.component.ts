@@ -39,7 +39,6 @@ export class HeaderComponent implements OnInit {
 
   viewCalendar() {
     this.router.navigateByUrl('/pages/admin/calendar');
-    console.log('Calendar');
   }
 
   generatePayroll() {
@@ -48,5 +47,4 @@ export class HeaderComponent implements OnInit {
       attached: null
     })
   }
-
 }

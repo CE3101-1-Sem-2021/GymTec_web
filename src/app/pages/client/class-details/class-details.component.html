@@ -1,0 +1,18 @@
+<mat-card class="mainCard">
+    <div class="iconContainer">
+      <img
+        class="icon"
+        src="../../../../assets/icons/return.svg"
+        (click)="return()"
+      />
+    </div>
+  
+    <p>Tipo de Servicio: {{ classData.Tipo_Servicio }}</p>
+    <p>ID: {{ classData.Id }}</p>
+    <p>Modalidad: {{ classData.Modalidad }}</p>
+    <p>Instructor: {{ classData.Instructor }}</p>
+    <p>Capacidad: {{ classData.Capacidad }}</p>
+    <button (click)="subscribe()">
+        Suscribir
+    </button>
+</mat-card>

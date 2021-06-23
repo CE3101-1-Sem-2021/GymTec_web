@@ -1,1 +1,8 @@
-<p>dashboard works!</p>
+<div *ngIf="boolSmokeScreen" class="smokeScreen"></div>
+<app-class-details *ngIf="boolShowDetails" [classData]="currentClass" (raiseEvent)="clickEvent($event)"></app-class-details>
+
+<h1>Mis clases</h1>
+<h2 *ngIf="!myClasses[0]">No tienes clases asociadas</h2>
+<div class="pageLayout">
+    <app-class *ngFor="let class of myClasses" [classData]="class" (raiseEvent)="clickEvent($event)"></app-class>
+</div>

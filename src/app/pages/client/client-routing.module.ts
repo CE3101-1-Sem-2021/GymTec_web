@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { ClientComponent } from './client.component';
 import { AvailableClassesComponent } from './available-classes/available-classes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { MyClassesComponent } from './my-classes/my-classes.component';
 
 const routes: Routes = [
   {
@@ -18,10 +17,6 @@ const routes: Routes = [
       {
         path: 'available-classes',
         component: AvailableClassesComponent
-      },
-      {
-        path: 'my-classes',
-        component: MyClassesComponent
       },
       {
         path: '',

@@ -1,11 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { BranchOffice } from 'src/app/models/branch-office';
 import { EventData } from 'src/app/models/event-data';
 import { Site } from 'src/app/models/site';
 import { Treatment } from 'src/app/models/treatment';
 import { AdminService } from 'src/app/services/admin.service';
 import { BranchOfficeService } from 'src/app/services/branch-office.service';
-import { TreamentService } from '../../treatments/treament.service';
 
 @Component({
   selector: 'app-link-treatments',
@@ -73,7 +71,7 @@ export class LinkTreatmentsComponent implements OnInit {
     for(const treatment of this.allTreatments) {
       if(treatment.Nombre == name) {
         treatment.Sucursal.push(this.selectedBranch);
-        this.branchService.asignTreatment(this.adminService.token, treatment.Id, this.selectedBranch.Nombre)
+        this.branchService.assignTreatment(this.adminService.token, treatment.Id, this.selectedBranch.Nombre)
         break;
       }
     }
@@ -92,7 +90,7 @@ export class LinkTreatmentsComponent implements OnInit {
           }
         }
         treatment.Sucursal.splice(position, 1);
-        this.branchService.unsignTreatment(this.adminService.token, treatment.Id, this.selectedBranch.Nombre)
+        this.branchService.unassignTreatment(this.adminService.token, treatment.Id, this.selectedBranch.Nombre)
         break;
       }
     }
@@ -117,6 +115,8 @@ export class LinkTreatmentsComponent implements OnInit {
   clickEvent($event: EventData) {
     switch ($event.eventID) {
       case 'Sucursal': {
+        this.linkedValues = [];
+        this.notLinkedValues = [];
         for(const branch of this.branchOffices) {
           if(branch.Nombre == $event.attached) {
             this.selectedBranch = branch;

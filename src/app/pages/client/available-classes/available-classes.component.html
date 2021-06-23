@@ -1,1 +1,30 @@
-<p>available-classes works!</p>
+<div *ngIf="boolSmokeScreen" class="smokeScreen"></div>
+<app-class-details *ngIf="boolShowDetails" [classData]="currentClass" (raiseEvent)="clickEvent($event)"></app-class-details>
+
+<div class="pageLayout">
+    <div class="horizontalContainer">
+        <app-class *ngFor="let class of allClasses" [classData]="class" (raiseEvent)="clickEvent($event)"></app-class>
+    </div>
+</div><h1>Clases disponibles</h1>
+
+<!--<div class="row">
+    <input class="input" matInput type="text" placeholder=" Tipo" [(ngModel)]="newClass.Tipo_Servicio">
+    <gt-drop-down
+        [title]="'Instructor(a)'"
+        [elemList]="instructorNames"
+        (raiseEvent)="clickEvent($event)">
+    </gt-drop-down>
+    <gt-drop-down
+        [title]="'Modalidad'"
+        [elemList]="modality"
+        (raiseEvent)="clickEvent($event)">
+    </gt-drop-down>
+    <input class="inputShort" matInput type="number" [(ngModel)]="newClass.Capacidad">
+    <app-date-picker (raiseEvent)="clickEvent($event)"></app-date-picker>
+    <gt-drop-down
+        [title]="'Horario'"
+        [elemList]="schedules"
+        (raiseEvent)="clickEvent($event)">
+    </gt-drop-down>
+</div>-->
+

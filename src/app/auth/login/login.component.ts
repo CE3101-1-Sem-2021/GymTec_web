@@ -5,6 +5,7 @@ import { AuthService } from "../../services/auth.service";
 import { AlertService } from "../../services/alert.service";
 import { AdminService } from "src/app/services/admin.service";
 import { FormControl, FormGroup } from "@angular/forms";
+import { ClientService } from "src/app/services/client.service";
 
 @Component({
   selector: "app-login",
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private alertService: AlertService,
-    private authService: AdminService
+    private authService: AdminService,
+    private clientService: ClientService
   ) {}
 
   ngOnInit(): void {
@@ -33,17 +35,14 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.view == "Admin") {
-      this.authService
-        .validateCredentials(this.email, this.password, this.selected)
+      this.authService.validateCredentials(this.email, this.password, this.selected)
         .then((response) => {
-          console.log(response);
           if (!response.ok) {
             throw response.text();
           }
           return response.text();
         })
         .then((result) => {
-          console.log(result);
           this.authService.token = result;
           this.alertService.alertSuccess("Login exitoso");
           this.router.navigateByUrl("/pages/admin/home");
@@ -55,11 +54,25 @@ export class LoginComponent implements OnInit {
           });
         });
     } else if (this.view == "Client") {
-      this.router.navigateByUrl("/pages/client/home");
+      this.clientService.validateCredentials(this.email, this.password)
+      .then((response) => {
+        if (!response.ok) {
+          throw response.text();
+        }
+        return response.text();
+      })
+      .then((result) => {
+        this.clientService.token = result;
+        this.alertService.alertSuccess("Login exitoso");
+        this.router.navigateByUrl("/pages/client/home");
+      })
+      .catch(async (err) => {
+        err.then((result: any) => {
+          console.log(result);
+          this.alertService.alertError(result);
+        });
+      });
     }
-    //if(this.email != '' && this.password != '') {
-    //this.authService.login(this.email, this.password, this.view);
-    //}
     else {
       this.alertService.alertError("Debe ingresar un correo y contraseña.");
     }

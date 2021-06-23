@@ -1,43 +1,43 @@
 <div class="mainContainer">
     <mat-card class="card">
-        <input id="inputFile" type="file" accept="image/*" name="image" style="display: none;" #inputFile>
-        <button class="addPicture">
-            <!--<img class="clickableIcon" src="{{ iconSource }}">-->
-        </button>
-        <div class="bottomContainer">
+        <div class="horizontalContainer">
             <form>
-                <mat-form-field class="inputLong">
-                    <input matInput #message name="name" placeholder="Nombre" [(ngModel)]="name">
-                </mat-form-field>
-                <mat-form-field class="inputLong">
-                    <input matInput #message name="lastName" placeholder="Apellidos" [(ngModel)]="lastNames">
-                </mat-form-field>
-                <mat-form-field class="inputLong">
-                    <input matInput #message name="email" placeholder="Correo" [(ngModel)]="email">
-                </mat-form-field>
-                <mat-form-field class="inputLong">
-                    <input matInput type="password" name="password" placeholder="Contraseña" [(ngModel)]="password">
-                </mat-form-field>
                 <div class="verticalContainer">
-                    <gt-drop-down
-                        [title]="'Provincia'"
-                        [elemList]="this.provinces"
-                        (raiseEvent)="selectedProvince($event)"
-                    ></gt-drop-down>
-                    <gt-drop-down 
-                        [title]="'Cantón'"
-                        [elemList]="this.cantons"
-                        (raiseEvent)="selectedCanton($event)">
-                    </gt-drop-down>
-                    <gt-drop-down
-                        [title]="'Distrito'"
-                        [elemList]="this.districts"
-                        (raiseEvent)="selectedDistrict($event)">
-                    </gt-drop-down>
+                    <mat-form-field class="inputLong">
+                        <input matInput #message name="name" placeholder="Nombre" [(ngModel)]="newClient.nombre">
+                    </mat-form-field>
+                    <mat-form-field class="inputLong">
+                        <input matInput #message name="lastName" placeholder="Apellidos" [(ngModel)]="newClient.apellidos">
+                    </mat-form-field>
+                    <mat-form-field class="inputLong">
+                        <input matInput #message name="id" placeholder="Cedula" [(ngModel)]="newClient.cedula">
+                    </mat-form-field>
+                    <app-date-picker (raiseEvent)="clickEvent($event)"></app-date-picker>
+                    <mat-form-field class="inputLong">
+                        <input matInput type="number" #message name="weight" placeholder="Peso" [(ngModel)]="newClient.peso">
+                    </mat-form-field>
                 </div>
             </form>
-
-            <button class="signUpButton" (click)="register()">Registrar</button>
+            <form>
+                <div class="verticalContainer">
+                    <mat-form-field class="inputLong">
+                        <input matInput type="number" #message name="age" placeholder="Edad" [(ngModel)]="newClient.edad">
+                    </mat-form-field>
+                    <mat-form-field class="inputLong">
+                        <input matInput type="number" #message name="imc" placeholder="IMC" [(ngModel)]="newClient.imc">
+                    </mat-form-field>
+                    <mat-form-field class="inputLong">
+                        <input matInput #message name="address" placeholder="Direccion" [(ngModel)]="newClient.direccion">
+                    </mat-form-field>
+                    <mat-form-field class="inputLong">
+                        <input matInput #message name="email" placeholder="Correo" [(ngModel)]="newClient.email">
+                    </mat-form-field>
+                    <mat-form-field class="inputLong">
+                        <input matInput type="password" name="password" placeholder="Contraseña" [(ngModel)]="newClient.password">
+                    </mat-form-field>
+                </div>
+            </form>
         </div>
+        <button class="signUpButton" (click)="register()">Registrar</button>
     </mat-card>
 </div>
