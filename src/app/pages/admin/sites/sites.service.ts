@@ -13,7 +13,7 @@ export class SitesService {
 
   async getSites(token: string) {
     return fetch(
-      "https://gymtecrelational.conveyor.cloud/api/Gym/getAllGyms/" + token,
+      "https://gymtecrelational.conveyor.cloud/api/Gym/getAllGyms/",
       {
         method: "GET",
         headers: myHeaders,

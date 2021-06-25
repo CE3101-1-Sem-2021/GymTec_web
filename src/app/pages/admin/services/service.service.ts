@@ -11,8 +11,7 @@ export class ServiceService {
 
   async getServices(token: string) {
     return fetch(
-      "https://gymtecrelational.conveyor.cloud/api/Service/getAllServices/" +
-        token,
+      "https://gymtecrelational.conveyor.cloud/api/Service/getAllServices/",
       {
         method: "GET",
         headers: myHeaders,
